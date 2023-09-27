@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*2.	Haz una página que genere una pirámide de 1 a 50, formada de la siguiente forma:
+1
+22
+333
+4444
+55555
+666666
+7777777*/
+
+var piramide = '';
+ for (var i = 1; i <= 50; i++) {
+    for (var j = 1; j <= i; j++) {
+      piramide += j;
+      document.write(piramide+"<br>");
+
+     }
+    }
+
+
+  </script>
+</body>
+</html>

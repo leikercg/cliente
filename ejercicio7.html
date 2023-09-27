@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+7.	Muestra si un número introducido es par o impar. Si no se introduce ningún número (se pulsa en “Cancelar”), debe aparecer de nuevo la solicitud.
+*/
+
+
+    do {
+      var n1 = parseInt(prompt("introduce el numero 1:"));
+    }while(isNaN(n1))//sin hacer el parse comprobar si es
+    {
+      if (n1%2==0){
+        document.write(n1 + " es par ");
+      }else {
+        document.write(n1 + " es iiiiimpar ");
+      }}
+
+
+
+  </script>
+</body>
+</html>
