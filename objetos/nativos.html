@@ -9,13 +9,56 @@
 
   <script>
     var radio = 2;
-    document.write("si el radio de una circulo es "+radio+" su area es "+ Math.exp(2,radio));
+    document.write("si el radio de una circulo es "+radio+" su area es "+ Math.exp(2,radio)*Math.PI);
 
     document.write("<br><b>----------------------------------------------------------------</b><br>")
     document.write(parseInt(Math.random()*91+10)+"<br>");
 
+    document.write("<br><b>----------------------------------------------------------------</b><br>")
 
-    document.write(parseInt(decimal));
+    //Number.isNaN, isNaN, Number.NaN para comprobar que es un numero o no
+    var max = Number.MAX_VALUE; // numero max
+    document.write(max);
+
+    document.write("<br><b>----------------------------------------------------------------</b><br>")
+
+    var min = Number.MIN_VALUE; // numero min
+    document.write(min);
+
+    document.write("<br><b>----------------------------------------------------------------</b><br>")
+
+    var positivo = Number.POSITIVE_INFINITY; // positivo infinito
+    document.write(positivo);
+
+    document.write("<br><b>----------------------------------------------------------------</b><br>")
+
+    var negativo = Number.NEGATIVE_INFINITY; // negativo infinito
+    document.write(negativo);
+
+    document.write("<br><b>----------------------------------------------------------------</b><br>")
+
+    //formatear el numero PI
+    var pi = Math.PI;
+    document.write (pi.toPrecision(3));
+
+    document.write("<br><b>----------------------------------------------------------------</b><br>")
+
+    document.write(pi.toFixed(2));
+
+    document.write("<br><b>--------------------------------String--------------------------------</b><br>")
+
+    var frase = prompt("Introduce una frase");
+    document.write(frase.italics()+"<br>");
+    document.write(frase.bold()+"<br>");
+    document.write(frase.fixed()+"<br>");
+    document.write(frase.fontcolor("red")+"<br>");
+    document.write(frase.fontsize(45)+"<br>");
+
+
+
+
   </script>
+
+
 </body>
 </html>
