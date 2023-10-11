@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div align="center">
+    <!-- crea un boton que al ser pulsado abre 5 paginas diferentes, escribe el texto desde-->
+    <h1>Apertura de múltiples ventanas secundarias (5)</h1>
+    <input type="Button" value="Abre múltiples ventanas..."
+    onclick="for (i=0;i<5;i++) {
+    myWindow=window.open('','','width=200,height=200');//si no se pone ningun tamaño abre una pagina al tmaño maximo permitido
+    myWindow.document.write('<html>');
+    myWindow.document.write('<head>');
+    myWindow.document.write('<title>Ventana '+i+'</title>');
+    myWindow.document.write('</head>');
+    myWindow.document.write('<body>');
+    myWindow.document.write('Ventana ' + i);
+    myWindow.document.write('<input type=button value=Cerrar onClick=window.close()>');
+    //en un input escritp desde document.write() no se pone las comillas de los atributos
+    myWindow.document.write('</body>');
+    myWindow.document.write('</html>'); }" />
+    </div>
+</body>
+</html>
