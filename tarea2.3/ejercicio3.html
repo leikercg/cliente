@@ -10,13 +10,18 @@
   <script>
     var letras = "TRWAGMYFPDXBNJZSQVHLCKET";
     var dni = prompt("Introduce el dni:");
-    if (dni.length !== 9 || dni.charAt(8)>=0 || dni.charAt(8)<=9) {
-        for (i = 0; i < dni.length - 1; i++) {
-          if (isNaN(dni.charAt(i))) {
-            document.write("DNI no valido");
-          }
-          document.write(i + "<br>")
-        }
+    var esNum = true;
+
+    //validar con un true
+
+    for (i = 0; i < dni.length - 1; i++) {
+      if (isNaN(dni.charAt(i))) {
+        document.write("DNI no valido");
+      }
+      document.write(i + "<br>")
+    }
+    if (dni.length != 9 && !isNaN(dni.charAt(8))) {
+
 
     } else {
       document.write("DNI no valido");
