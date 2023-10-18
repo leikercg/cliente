@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var letras = "TRWAGMYFPDXBNJZSQVHLCKET";
+    var dni = prompt("Introduce el dni:");
+    if (dni.length !== 9 || dni.charAt(8)>=0 || dni.charAt(8)<=9) {
+        for (i = 0; i < dni.length - 1; i++) {
+          if (isNaN(dni.charAt(i))) {
+            document.write("DNI no valido");
+          }
+          document.write(i + "<br>")
+        }
+
+    } else {
+      document.write("DNI no valido");
+    }
+
+
+  </script>
+</body>
+</html>

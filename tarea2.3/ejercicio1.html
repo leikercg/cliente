@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    for (i = 1; i <= 100; i++) { //un bucle para recorrer los numero del 1 al 100
+      if (i % 7 == 0 || i % 10 == 7) { //si el resto de i/7 == 0 ó termina en 7( tambien se puede hacer asi: i.toString().endsWith(7)  ) hacer esto:
+
+        document.write("PUM <br> "); //imprimir PUM y un salto de línea e incrementar i, para saltarselo y no imprimirlo
+        i++;
+      } document.write(i + ", ");//imprime i y una coma
+    }
+  </script>
+</body>
+</html>
