@@ -79,11 +79,17 @@
       default:
         break;
     }
+var minutos = fecha.getMinutes();
+if (minutos.toString.length == 2){
+  minutos = "3"+""+minutos;
+}
 
 
-
-    document.write("<h1>Hoy es, " + dia + " " + fecha.getDate() + " de " + mes + " de " + fecha.getFullYear() + " y son las " + fecha.getHours() + ":" + fecha.getMinutes() + " horas </h1>")
+    document.write("<h1>Hoy es, " + dia + " " + fecha.getDate() + " de " + mes + " de " + fecha.getFullYear() + " y son las " + fecha.getHours() + ":" + fecha.getMinutes() + " horas </h1> <br>")
     //imprimmos con el formato socilitado concatenando las variables, el texto fijo y los valores obtenidos de las funciones de Date().
+
+    document.write(minutos);
+
   </script>
 
 </body>
