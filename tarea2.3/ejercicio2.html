@@ -10,7 +10,7 @@
   <script>
     var fecha = new Date(); //declaramos una fecha
     var dia = fecha.getDay(); //le damos valor a la variable dia con con la funcion .getDay()
-    var mes = fecha.getMonth()+1;//le damos valor a la variable mes con con la funcion .getMonth()........Sumamos 1 por que devuelve numeros entre 0 y 11 para los meses
+    var mes = fecha.getMonth() + 1;//le damos valor a la variable mes con con la funcion .getMonth()........Sumamos 1 por que devuelve numeros entre 0 y 11 para los meses
     switch (dia) { //evaluamos la variable dia en 7 casos, si cumple algun caso la variable dia cambia al valor del caso correspondiente
       case 1:
         dia = "lunes";
@@ -19,19 +19,19 @@
         dia = "martes";
         break;
       case 3:
-      dia = "miercoles";
+        dia = "miercoles";
         break;
       case 4:
-      dia = "jueves";
+        dia = "jueves";
         break;
       case 5:
-      dia = "viernes";
+        dia = "viernes";
         break;
       case 6:
-      dia = "sábado";
+        dia = "sábado";
         break;
       case 7:
-      dia = "domingo";
+        dia = "domingo";
         break;
 
       default:
@@ -46,49 +46,51 @@
         mes = "Febrero";
         break;
       case 3:
-      mes = "Marzo";
+        mes = "Marzo";
         break;
       case 4:
-      mes = "Abril";
+        mes = "Abril";
         break;
       case 5:
-      mes = "Mayo";
+        mes = "Mayo";
         break;
       case 6:
-      mes = "Junio";
+        mes = "Junio";
         break;
       case 7:
-      mes = "Julio";
+        mes = "Julio";
         break;
-        case 8:
-      mes = "Agosto";
+      case 8:
+        mes = "Agosto";
         break;
-        case 9:
-      mes = "Septiembre";
+      case 9:
+        mes = "Septiembre";
         break;
-        case 10:
-      mes = "Octubre";
+      case 10:
+        mes = "Octubre";
         break;
-        case 11:
-      mes = "Noviembre";
+      case 11:
+        mes = "Noviembre";
         break;
-        case 12:
-      mes = "Diciembre";
+      case 12:
+        mes = "Diciembre";
         break;
 
       default:
         break;
     }
-var minutos = fecha.getMinutes();
-if (minutos.toString.length == 2){
-  minutos = "3"+""+minutos;
-}
+    var minutos = fecha.getMinutes(); //establecemos la variable minutos
+
+    if (minutos.toString().length == 1) {//si la longitud de minutos es igual a 1, le concatenamos un 0 delante, para respetar el formato solicitado.
+      minutos = 0+""+minutos;
+    }
 
 
-    document.write("<h1>Hoy es, " + dia + " " + fecha.getDate() + " de " + mes + " de " + fecha.getFullYear() + " y son las " + fecha.getHours() + ":" + fecha.getMinutes() + " horas </h1> <br>")
+
+    document.write("<h1>Hoy es, " + dia + " " + fecha.getDate() + " de " + mes + " de " + fecha.getFullYear() + " y son las " + fecha.getHours() + ":" + minutos + " horas </h1> <br>")
     //imprimmos con el formato socilitado concatenando las variables, el texto fijo y los valores obtenidos de las funciones de Date().
 
-    document.write(minutos);
+
 
   </script>
 
