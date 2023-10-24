@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    document.title="Varios objetos predifinidos de JS"; //cambiamos el titulo del documento
+    document.bgColor="grey";//definimos el color de fondo del documento
+    document.fgColor="white";//definimos el color de la funete del documento
+
+    var ancho = screen.width; //definimos la variable del ancho con el metodo with de screen que devuelve el ancho de la pantalla en pixeles.
+
+    var altura = screen.height;//definimos la variable de la altura con el metodo height de screen que devuelve la altura de la pantalla en pixeles.
+
+    var sumaDeCuadrados = (Math.pow(ancho,2))+(Math.pow(altura,2));//calculamos la raiz cuadrada de la suma de los cuadrados de las variables ancho y altura
+
+    document.write(Math.sqrt(sumaDeCuadrados).toFixed(1)+"px");//imprimos por pantalla el resultado.
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    var letras = "TRWAGMYFPDXBNJZSQVHLCKET";
+    var dni = prompt("Introduce el dni:");
+    var esnum = true; //creo esta variable para usarla como validador.
+
+    for (i = 0; i <= 8; i++) { //recorro la parte numérica para comprobar que son solo numeros. Si algún carácter no es un numero el validados es numero pasa a falso.
+      if (isNaN(dni.substring(0, 8))) {
+        esnum = false;
+      }
+
+
+    }
+    if (esnum == false) { //si la parte numérica tiene algo distinto a un numero sale una alerta de error.
+      alert("DNI ERRONEO");
+    }
+
+
+    if (dni.length == 9 && esnum == true && isNaN(dni.charAt(8))) {//verficamos que la longitud del dni sea 9, que la parte numérica sea solo números y que el último dígito no sea un número.
+      if (letras.charAt(dni.substring(0, 8) % 23) == dni.charAt(8).toUpperCase()) {
+        alert("DNI CORRECTO"); //comprobamos que el último caracter sea la letra correspondiente, pasamos las minúsculas a mayúsculas.
+      } else {
+        alert("DNI ERRONEO");
+      }
+    } else {
+      alert("DNI ERRONEO");
+    }
+
+
+
+
+  </script>
+</body>
+</html>

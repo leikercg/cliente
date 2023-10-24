@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var ventanaSecundaria = window.open("", "ventanaSec", "width=500, height=500");//crea una nueva ventana
+   // ventanaSecundaria.location="https://www.youtube.com";
+
+  </script>
+    <center><h1> Comunicación entre ventanas </h1><br>
+    <form name=formulario>
+    <input type=text name=url size=50 value="https://www.">
+    <input type=button value="Mostrar URL en ventana secundaria"
+    onclick=" ventanaSecundaria.location = document.formulario.url.value;"><!-- accede al valor de imput url del formulario del documeto de la pagina principal y le da ese valor a .location
+    a la ventana secundaria-->
+    </form>
+    </center>
+
+
+
+</body>
+</html>

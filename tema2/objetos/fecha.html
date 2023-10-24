@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var fecha_actual = new Date();
+   // alert("la fecha actual es "+fecha_actual);
+    document.write("<b>la fecha <br></b> actual es <br> <br>"+fecha_actual);
+    document.write("<br><b>----------------------------------------------------------------</b><br>")
+
+
+    var fecha_fin = new Date(2024,1,1);
+    document.write("<b>la fecha <br></b> fin es "+fecha_fin+ "<br> <br>");
+    document.write("<br><b>----------------------------------------------------------------</b><br>")
+
+
+    var fecha_restante = fecha_fin - fecha_actual;
+    document.write("faltan "+ fecha_restante+ " milisegundos para que acabe el año");
+    //la resta da directamente milisegundos
+
+    document.write("<br><b>----------------------------------------------------------------</b><br>")
+
+    var anyo = fecha_actual.getFullYear();
+    var mes = fecha_actual.getMonth()+1;
+    //en este caso no hace falta parsear pero cuidado
+
+    document.write("estamos en el año "+anyo+" y en el mes "+mes);
+
+  </script>
+
+</body>
+</html>
