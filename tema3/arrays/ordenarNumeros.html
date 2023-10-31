@@ -14,7 +14,13 @@
       return a - b;
     }
     var numeros = new Array(4, 21, 1, 30, 10000);
-
+    for (var i = 0; i < numeros.length; i++) {
+      var code = "";
+      for (var j = 0; j < numeros[i].toString().length; j++) {
+        code +=numeros[i].toString().charCodeAt(j)+" "
+      }
+      document.write(code+" <br>");
+    }
     document.write("<br>");
     numeros.sort(ascendente);
 
