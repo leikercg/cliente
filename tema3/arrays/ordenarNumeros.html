@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <script>
+    function ascendente(a, b) {
+
+      return a - b;
+    }
+    var numeros = new Array(4, 21, 1, 30, 10000);
+
+    document.write("<br>");
+    numeros.sort(ascendente);
+
+
+    document.write(numeros.join("-")); //concatena con un caracter especial
+  </script>
+
+</body>
+</html>

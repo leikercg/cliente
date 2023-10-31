@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+
+    /*Ejercicio: Crea un array con los elementos
+'botella', 'zeta', 'androide' y 'minuto' en un script
+que los ordene alfabéticamente y luego los
+muestre en pantalla uno debajo de otro.*/
+     var myArray = new Array( "botella","zeta", "androide","minuto");
+     myArray.sort();
+
+     //var nuevoNumeroArray = myArray.push("hola","que","pasa");//esto devuelve un numero en vez de un array, con el numero de elementos
+     for (var i = 0; i < myArray.length; i++) {
+        document.write(myArray[i]+"<br>");
+     }
+
+  </script>
+
+</body>
+</html>
