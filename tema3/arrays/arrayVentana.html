@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function obtenerDatos() {
+  var textarea = document.getElementById("palabras");
+  var valor = textarea.value;
+  var ventana2 = window.open("","ventana2");
+  ventana2.document.title="ventana secundaria";
+
+
+  // Hacer algo con el valor, como mostrarlo en la consola
+  console.log("Datos del textarea: " + valor);
+}
+
+  </script>
+</head>
+
+<body>
+
+  <h1>Manipular un array</h1>
+
+  <textarea name="palabras" id="palabras" cols="30" rows="10"></textarea>
+  <input type="button" value="Aceptar" onclick="obtenerDatos()">
+  <script>
+
+
+  </script>
+
+</body>
+</html>
