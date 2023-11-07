@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+    function negativos(vector) {
+      var nuevoVector = Array();
+      vector.forEach(element => {
+        if(element < 0){
+          nuevoVector.push(element);
+        }
+
+      });
+      return nuevoVector;
+    }
+  </script>
+</head>
+<body>
+
+  <script>
+    var vector = Array(1,-6,-3,-2,9);
+    var nuevoVector=negativos(vector);
+    document.write("valores vector original: "+vector+"<br>");
+    document.write("valores negativos del vector: "+nuevoVector+"<br>");
+    var resultado =1;
+    for( var i = 0; i < nuevoVector.length ; i++){
+      resultado *= parseInt(nuevoVector[i]);
+
+    }
+    document.write("valores de la multiplicacion del vector negativo: "+resultado+"<br>");
+
+
+  </script>
+
+
+</body>
+</html>

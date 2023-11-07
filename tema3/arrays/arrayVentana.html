@@ -6,15 +6,26 @@
   <title>Document</title>
   <script>
     function obtenerDatos() {
-  var textarea = document.getElementById("palabras");
-  var valor = textarea.value;
-  var ventana2 = window.open("","ventana2");
-  ventana2.document.title="ventana secundaria";
+      var textarea = palabras.value.split(" "); //split devuelve un array
+
+      var ventana2 = window.open("", "ventana2");
+      ventana2.document.title = "ventana secundaria";
+
+      ventana2.document.write("primera palabra: " + textarea[0] + "<br>");
+      ventana2.document.write("ultima palabra: " + textarea[(textarea.length) - 1] + "<br>");
+      ventana2.document.write("cantidad de palabras: " + textarea.length + "<br>");
+
+      var cadenaunida = textarea.sort().join(" - ");//dos metodos;
+
+      ventana2.document.write("ordenada alfabeticamente: " + cadenaunida);
 
 
-  // Hacer algo con el valor, como mostrarlo en la consola
-  console.log("Datos del textarea: " + valor);
-}
+
+
+
+      // Hacer algo con el valor, como mostrarlo en la consola
+      ventana2document.write("Datos del textarea: " + textarea);
+    }
 
   </script>
 </head>
@@ -22,13 +33,9 @@
 <body>
 
   <h1>Manipular un array</h1>
-
+  <form action="a"></form>
   <textarea name="palabras" id="palabras" cols="30" rows="10"></textarea>
   <input type="button" value="Aceptar" onclick="obtenerDatos()">
-  <script>
-
-
-  </script>
 
 </body>
 </html>
