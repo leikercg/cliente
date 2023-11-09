@@ -12,7 +12,7 @@
 
       /*revisar:///////////////////////////////////////////////////////////
 
-      funcion Array.isArray(vector)
+      funcion -----Array.isArray(vector)
 
       vector.forEach(element => {
         if(element < 0){
@@ -26,7 +26,6 @@
 
       var nuevoVector = Array(); //declaramos un nuevo vector
       for (var i = 0; i < vector.length; i++) {
-        document.write(vector[i]);
         if (vector[i] < 0) {
           nuevoVector.push(vector[i]);//recorremos el vector pasadp como parametro y verificamos si el elemento con indice y es menor que cero, si se cumple hacemos push de ese elemento al nuevo vector declarado anteriormente.
         }
@@ -34,13 +33,20 @@
       return nuevoVector;//devolvemos el vector con todos los elementos negativos del array original
     }
 
-    function triple (vector){
-      var nuevoVector = Array();
-      for (var i = 0; i < vector.length; i++) {
-        vector[i]=vector[i]*3;
-        nuevoVector.push(vector[i]);
+    function triple(vector) { //funcion que multiplica los elementos del array por 3 cada uno
+      var nuevoVector = vector.slice();//declaramos un nuevo vector haciendo una copia del pasado, para no modificar su valor, ya que en js se los arrays se pasan por referencia y no por valor
+      for (var i = 0; i < nuevoVector.length; i++) {//recorremos el vector y lo multiplicamos por 3 a cada elemento
+        nuevoVector[i] = nuevoVector[i] * 3;
       }
-      return nuevoVector;
+      return nuevoVector;//devolvemos el nuevo vector con los numeros multiplicados por 3
+    }
+
+    function multiplicacion(vector) {//funcion que multiplica todos los elementos del array entre si
+      var resultado = 1; //declaramos una variable para almacenar el resultado final, le damos valor 1 para que sea de tipo number(multiplicar por uno no varia el resultado)
+      for (var i = 0; i < vector.length; i++) {//recorremos el vector pasado como parametro
+        resultado *= vector[i];//en cada vuelta del bucle el resultado  será el resultado actual multiplicado por el elemento del vector[i]
+      }
+      return resultado; //devolvemos un valor, el resultado.
     }
   </script>
 </head>
@@ -49,26 +55,14 @@
 
   <script>
     var vector = Array(1, -6, -3, -2, 9); //nos inventamos un array de numeros reales
-    var nuevoVector = negativos(vector); //le damos como valor al nuevo vector el array que devuelve la funcion definida arriba.
+    var vectorNegativo = negativos(vector); //le damos como valor al nuevo vector el array que devuelve la funcion definida arriba.
+    var vectortriple = triple(vectorNegativo);
+    var resultado = multiplicacion(vectortriple);
+
     document.write("valores vector original: " + vector + "<br>");// se muestra el array original
-    document.write("valores negativos del vector: " + nuevoVector + "<br>"); //se muestra el array de solo negativos(el nuevo array).
-
-
-    var vectortriple=triple(nuevoVector);
-
-    document.write(vectortriple+ "<br>");
-
-
-    var resultado = 1;
-    for (var i = 0; i < nuevoVector.length; i++) {
-      resultado *= parseInt(nuevoVector[i]);
-
-    }
-
-
-
-
-    document.write("valores de la multiplicacion del vector negativo: " + resultado + "<br>");//devol
+    document.write("valores negativos del vector: " + vectorNegativo + "<br>"); //se muestra el array de solo negativos(el nuevo array).
+    document.write("valores del vector multiplicado por 3: " + vectortriple + "<br>");//se muestra un 2o nuevo array con los valores multiplicados del 1er nuevo array
+    document.write("valores de la multiplicacion del vector negativo: " + resultado + "<br>");//devolvemos la multiplicación de todos los valores del segundo nuevo array
 
 
   </script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+    function valido(num) {//funcion que valida que sea un numero entero positivo, que no sea nullo(cancelar) o este vacio
+      if (num <= 0 || num % 1 != 0 || num == null || num == "" || isNaN(num)) {
+        return false; //devuelve falso si cumple alguna de las condiciones nombradas
+      } else
+        return true;//si no se cumple ninguna develve true, es valido para calcular el factorial
+    }
+    function factorial(num) {
+      var resultado; //declaramos una variable
+      for (var i = 1; i <= num; i++){//recorremos desde el 1 hasta num incluido y en cada vuelta el valor de resultado se convierte en el valor actual multiplicado por la variable i
+        resultado*=i;
+      }
+      return resultado; //devolvemos el resultado
+    }
+  </script>
+</head>
+
+<body>
+  <script>
+    var num ;
+    do {//con este bucle mientras no sea valido el valor introducido en el prompt se pedira rellenar de nuevo
+      var num = prompt("Introduce un número para calcular su factorial \n El factorial es una operación matemática que se define para números ENTEROS NO NEGATIVOS.");
+
+    } while (valido(num) == false);//función que verifica validez
+
+    var resultado=factorial(num);//función que calcula factorial
+
+    alert("el factorial de "+num+" es "+resultado);//alerta que muestra el factorial de num.
+
+
+  </script>
+
+</body>
+</html>

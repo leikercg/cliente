@@ -6,7 +6,7 @@
   <title>Document</title>
   <script>
     function check(cadena) {
-      if ( !isNaN(cadena)) {//si no se introducen letras(los numeros con coma los cosideramos string en este ejercicio)
+      if (cadena.match(/^[^\p{L}]+$/u)) {// match compara la cadena con una expresión regular, en este caso la expresion compara que una cadena contega solo símbolos y numeros, por lo que si hay solo numero y/o simbolos aparecerá en pantalla el siguiente mensaje de alerta
         alert("No se han detectado letras");
       } else if (typeof cadena == "string") {//uso este condicional para tener ayudas en la escritura del codigo(al detectar cadena como string me aparecen las funciones predefinidas para esta clase)
 
@@ -34,7 +34,9 @@
     var cadena = ""; //declaro una variable de tipo string
     do {
       var cadena = prompt("Introducir una cadena de texto");
-    } while (cadena === null || cadena == ""); //con este bucle mientras cadena sea igual a una cadena vacia o sea igual a null, que es lo que devuelve al darle cancelar al prompt te pedira que rellenes de nuevo el prompt.
+    } while (cadena === null || cadena == ""); //con este bucle mientras cadena sea igual a una cadena vacia o sea igual a null, que es lo que devuelve al darle cancelar al prompt te pedira que rellenes de nuevo el prompt. Aclaración: los espacios vacios se consideran caracteres (el 32 en ASCII)
+
+    //////////////////revisar casa//// cadena.trimx() --> devuelve cadena sin espacios iniciales ni finales.
 
     check(cadena);
 
