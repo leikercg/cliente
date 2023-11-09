@@ -5,11 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script>
-    var cadena = "que pasa";
-    cadena.s
+    function check(cadena) {
+      if ( !isNaN(cadena)) {//si no se introducen letras(los numeros con coma los cosideramos string en este ejercicio)
+        alert("No se han detectado letras");
+      } else if (typeof cadena == "string") {//uso este condicional para tener ayudas en la escritura del codigo(al detectar cadena como string me aparecen las funciones predefinidas para esta clase)
+
+        if (cadena == cadena.toLowerCase()) {//verifico que la cadena es igual que la misma cadena convertida a minúsculas.
+          alert("Está compuesta sólo por minusculas");//Si se cumple la condicional envia un mensaje de alerta.
+
+        } else if (cadena == cadena.toLocaleUpperCase()) {//verifico que la cadena es igual que la misma cadena convertida a mayúsculas.
+
+          alert("Está compuesta sólo por mayúsculas");//Si se cumple la condicional envia un mensaje de alerta.
+        } else {
+          alert("Está compuesta minúsculas y mayúsculas");//Si no se cumple ninguna de las anteriores significa que contiene mayúsculas y minúsculas.
+        }
+
+      }
+
+    }
+
+
+
   </script>
 </head>
+
 <body>
+  <script>
+    var cadena = ""; //declaro una variable de tipo string
+    do {
+      var cadena = prompt("Introducir una cadena de texto");
+    } while (cadena === null || cadena == ""); //con este bucle mientras cadena sea igual a una cadena vacia o sea igual a null, que es lo que devuelve al darle cancelar al prompt te pedira que rellenes de nuevo el prompt.
+
+    check(cadena);
+
+
+
+
+  </script>
 
 </body>
 </html>

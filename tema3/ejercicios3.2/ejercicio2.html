@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+    function negativos(vector) {//funcion que devuelve un array de negativos dado un array.
+
+
+
+      /*revisar:///////////////////////////////////////////////////////////
+
+      funcion Array.isArray(vector)
+
+      vector.forEach(element => {
+        if(element < 0){
+          nuevoVector.push(element);
+        }
+
+      });*////////////////////////////////////////////revisar
+
+
+
+
+      var nuevoVector = Array(); //declaramos un nuevo vector
+      for (var i = 0; i < vector.length; i++) {
+        document.write(vector[i]);
+        if (vector[i] < 0) {
+          nuevoVector.push(vector[i]);//recorremos el vector pasadp como parametro y verificamos si el elemento con indice y es menor que cero, si se cumple hacemos push de ese elemento al nuevo vector declarado anteriormente.
+        }
+      }
+      return nuevoVector;//devolvemos el vector con todos los elementos negativos del array original
+    }
+
+    function triple (vector){
+      var nuevoVector = Array();
+      for (var i = 0; i < vector.length; i++) {
+        vector[i]=vector[i]*3;
+        nuevoVector.push(vector[i]);
+      }
+      return nuevoVector;
+    }
+  </script>
+</head>
+
+<body>
+
+  <script>
+    var vector = Array(1, -6, -3, -2, 9); //nos inventamos un array de numeros reales
+    var nuevoVector = negativos(vector); //le damos como valor al nuevo vector el array que devuelve la funcion definida arriba.
+    document.write("valores vector original: " + vector + "<br>");// se muestra el array original
+    document.write("valores negativos del vector: " + nuevoVector + "<br>"); //se muestra el array de solo negativos(el nuevo array).
+
+
+    var vectortriple=triple(nuevoVector);
+
+    document.write(vectortriple+ "<br>");
+
+
+    var resultado = 1;
+    for (var i = 0; i < nuevoVector.length; i++) {
+      resultado *= parseInt(nuevoVector[i]);
+
+    }
+
+
+
+
+    document.write("valores de la multiplicacion del vector negativo: " + resultado + "<br>");//devol
+
+
+  </script>
+
+
+</body>
+</html>
