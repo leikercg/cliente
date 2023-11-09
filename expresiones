@@ -1,0 +1,4 @@
+no espacios ="/\s+/g" quita los espacios
+cadena.match(/^[^\w\d]+$/) busca que solo contenga simbolos
+cadena.match(/^[^\p{L}]+$/u) busca que solo contenga numeros y simbolos, pero no letras
+Decimal, para verificar un numero Decimal dividir por 1
