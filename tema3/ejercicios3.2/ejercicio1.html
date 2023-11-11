@@ -34,9 +34,9 @@
     var cadena ; //declaro una variable
     do {
       var cadena = prompt("Introducir una cadena de texto");
-    } while (cadena === null || cadena == ""); //con este bucle mientras cadena sea igual a una cadena vacia o sea igual a null, que es lo que devuelve al darle cancelar al prompt te pedira que rellenes de nuevo el prompt. Aclaración: los espacios vacios se consideran caracteres (el 32 en ASCII)
+    } while (cadena == null || cadena == ""); //con este bucle mientras cadena sea igual a una cadena vacia o sea igual a null, que es lo que devuelve al darle cancelar al prompt te pedira que rellenes de nuevo el prompt. Aclaración: los espacios vacios se consideran caracteres (el 32 en ASCII)
 
-    //////////////////revisar casa//// cadena.trimx() --> devuelve cadena sin espacios iniciales ni finales.
+    //////////////////revisar casa//// cadena.trim() --> devuelve cadena sin espacios iniciales ni finales.
 
     check(cadena);
 
