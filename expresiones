@@ -2,3 +2,4 @@ no espacios ="/\s+/g" quita los espacios
 cadena.match(/^[^\w\d]+$/) busca que solo contenga simbolos
 cadena.match(/^[^\p{L}]+$/u) busca que solo contenga numeros y simbolos, pero no letras
 Decimal, para verificar un numero Decimal dividir por 1
+var matches = cadena.match(/\d+/); devuelve un array de coincidencias en matches.[0] con la 1a secuencia de numeros

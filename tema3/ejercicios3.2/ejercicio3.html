@@ -6,14 +6,14 @@
   <title>Document</title>
 
   <script>
-    function valido(num) {//funcion que valida que sea un numero entero positivo, que no sea nullo(cancelar) o este vacio
+    function valido(num) {//funcion que valida que sea un numero entero positivo, que no sea null(cancelar) o este vacio
       if (num <= 0 || num % 1 != 0 || num == null || num == "" || isNaN(num)) {
         return false; //devuelve falso si cumple alguna de las condiciones nombradas
       } else
         return true;//si no se cumple ninguna develve true, es valido para calcular el factorial
     }
     function factorial(num) {
-      var resultado; //declaramos una variable
+      var resultado=1;//declaramos una variable con valor 1 para iniciarla (1 por que al multiplicar por 1 no varia el resultado)
       for (var i = 1; i <= num; i++){//recorremos desde el 1 hasta num incluido y en cada vuelta el valor de resultado se convierte en el valor actual multiplicado por la variable i
         resultado*=i;
       }
@@ -33,7 +33,7 @@
     var resultado=factorial(num);//función que calcula factorial
 
     alert("el factorial de "+num+" es "+resultado);//alerta que muestra el factorial de num.
-
+    alert(parseInt("22222j"));
 
   </script>
 
