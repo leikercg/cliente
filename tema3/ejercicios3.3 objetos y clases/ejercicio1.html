@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    /*1.	Realiza el ejemplo anterior “Métodos de objetos” pero usando el iniciador de objetos.*/
+
+    function Coche(marca_in, modelo_in, anyo_in) {
+      this.marca = marca_in;
+      this.modelo = modelo_in;
+      this.anyo = anyo_in;
+      this.imprimeDatos = imprimeDatos;
+    }
+    function imprimeDatos() {// Método es del obejto coche, esta definida fuera de el
+      document.write(this.marca + "<br>");
+      document.write(this.modelo + "<br>");
+      document.write(this.anyo + "<br>");
+      document.write(" se imprimen hasta aquí los datos de metodo imprime datos");
+    }
+
+    var mi_coche = new Coche("Peugeot", "206cc", "2003");
+    mi_coche.imprimeDatos();
+    mi_coche.color = "azul"; //Nueva propiedad de la instancia.
+
+
+    ////////////////////////////
+
+    var Coche2 = {
+      marca:"Peugeot",
+      modelo:"206cc",
+      anyo:"2010",
+      imprime: function(){//añadimos un metodo en en objeto literal también llamado iniciador de objetos.
+        document.write(this.marca + "<br>");
+      document.write(this.modelo + "<br>");
+      document.write(this.anyo + "<br>");
+
+      }
+    }
+    document.write("<br><br> A partir de aqui se imprimen los datos de obejto mi coche creado con el iniciador de objetos<br>");
+
+    Coche2.imprime();
+
+
+  </script>
+
+</body>
+</html>
