@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>///usando CLASES
+    class vestido{
+      constructor(precio, descuento){
+        this.precio=precio;
+        this.descuento=descuento;
+      }
+      neto(){
+        document.write("El precio final con desceunto es: "+this.precio*(100-this.descuento)/100);
+      }
+    }
+
+    var mi_vestido=new vestido(prompt("precio: "),prompt("Descuento"));
+
+    mi_vestido.neto();
+
+
+
+
+  </script>
+
+</body>
+</html>
