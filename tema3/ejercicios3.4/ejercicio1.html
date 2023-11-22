@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function mayor(num1, num2) {
+
+      if (num1 > num2) {//si el primero es mayor devuelve true
+        return true;
+      } else {//si es igual o menor al segundo devuelve false
+        return false;
+      }
+    }
+
+    function segundoPositivo(num2) {
+      if (num2 > 0) {
+        return true; //si es mayor que 0 devuelve true;
+      } else {
+        return false; //en cualquier otro caso devuelve false
+      }
+    }
+
+
+    function primeroNegativo_igual(num1) {
+      if (num1 <= 0) {
+        return true; //si es menor o igual que 0 devuelve true;
+      } else {
+        return false; //en cualquier otro caso devuelve false
+      }
+    }
+
+
+    function masUno(num1, num2) {
+      if ((parseInt(num1) + 1) >= num2) {//si el primero al sumarle 1 es mayor que el segundo devolvera true
+        return true;
+      } else {//en cualquier otro caso false
+        return false;
+      }
+    }
+
+  </script>
+</head>
+
+<body>
+
+  <script>
+    var num1;
+    var num2;
+    do {
+      num1 = prompt("introce el primer número:");
+      num2 = prompt("introduce el segundo número:");
+    } while (num1 === null || num2 === null|| isNaN(num1) || isNaN(num2) || num1.trim() == "" || num2.trim() == "" );
+
+
+
+    var es_mayor = mayor(num1, num2);
+    var segundo_es_positivo = segundoPositivo(num2);
+    var primero_es_negatigo_o_cero = primeroNegativo_igual(num1);
+    var mayor_al_sumar1 = masUno(num1, num2);
+
+    document.write("el primero es mayor que el segundo, esto es: " + es_mayor + "<br>");
+    document.write("el segundo número es positivo, esto es: " + segundo_es_positivo + "<br>");
+    document.write("el primer número es menor o igual que 0, esto es: " + primero_es_negatigo_o_cero + "<br>");
+    document.write("si al primer número le sumamos 1 se convierte en mayor o igual que el segundo, esto es: " + mayor_al_sumar1 + "<br>");
+
+  </script>
+
+</body>
+</html>

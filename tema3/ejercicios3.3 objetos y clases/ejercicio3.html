@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*3.	Define un objeto “notas”, que se use para guardar información sobre las calificaciones de un alumno. El curso contiene tres materias: “ingles”, “programacion” y “html”, y dicho objeto contendrá el nombre del alumno y la calificación en cada una de ellas. El script imprimirá en pantalla el nombre y la media de sus calificaciones.*/
+
+    //USANDO INICADOR DE OBEJETOS
+
+    var Notas={
+      nombre:"Juan",
+      ingles:9,
+      programacion:8,
+      html:7,
+      media:function(){
+        document.write("la nota media de Juan es "+(this.html+this.ingles+this.programacion)/3);
+      }
+    }
+    Notas.media();
+
+
+  </script>
+
+</body>
+</html>

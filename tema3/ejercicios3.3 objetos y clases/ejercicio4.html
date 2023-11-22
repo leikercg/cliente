@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+//USANDO INICIADOR DE OBJETOS
+
+    /*4.	Define un objeto “vestido”, que mediante una expresión, tenga dos propiedades “precio” y “descuento”, y un método “neto”. Este método calculará el precio con el descuento aplicado mediante una función. Los valores se pedirán por teclado. El script imprimirá en pantalla el resultado.*/
+
+
+
+
+
+    var vestido ={ //creamos el objeto usando el iniciador de objetos
+      precio:parseInt(prompt("introduce el precio")),
+      descuento:parseInt(prompt("introduce el % de descuento")),
+      neto:function(){// no hace falta pasarle parametros precio y descuento por que ya tiene acceso a ellos.
+        document.write("El precio final con desceunto es: "+this.precio*(100-this.descuento)/100);
+      }
+    }
+
+    vestido.neto();//usamos la función definida dentro del objeto.
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    //USANDO CLASES
+    class Coche {
+      constructor(marca_in, modelo_in, anyo_in) {
+        this.marca = marca_in;
+        this.modelo = modelo_in;
+        this.anyo = anyo_in;
+      }
+      color;//propiedad agregada fuera del contructor
+
+      imprime(){// metodo agregado dentro de la clase
+        document.write(this.marca + "<br>");
+      document.write(this.modelo + "<br>");
+      document.write(this.anyo + "<br>");
+      }
+
+    }
+
+    var mi_coche = new Coche("Honda","Civic",2019);
+    mi_coche.color="azul";//dar valor a una propiedad fuera del constructor
+    mi_coche.motor="1500";//agregar una nueva propiedad
+    mi_coche.imprime();
+    document.write(mi_coche.color);
+    document.write(mi_coche.motor);
+
+
+  </script>
+
+</body>
+</html>
