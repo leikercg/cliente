@@ -51,15 +51,15 @@
     do {
       num1 = prompt("introce el primer número:");
       num2 = prompt("introduce el segundo número:");
-    } while (num1 === null || num2 === null|| isNaN(num1) || isNaN(num2) || num1.trim() == "" || num2.trim() == "" );
+    } while (num1 === null || num2 === null|| isNaN(num1) || isNaN(num2) || num1.trim() == "" || num2.trim() == "" );//se repitra la petición de datos mientras el tipo de datos no sean números ó sean nulos ó estén en blanco.
 
 
-
+//recogemos el valor que devuelve cada funcion en una variable
     var es_mayor = mayor(num1, num2);
     var segundo_es_positivo = segundoPositivo(num2);
     var primero_es_negatigo_o_cero = primeroNegativo_igual(num1);
     var mayor_al_sumar1 = masUno(num1, num2);
-
+//imprimos el valor que devuelve cada funcion junto con la coondición que evaluaba.
     document.write("el primero es mayor que el segundo, esto es: " + es_mayor + "<br>");
     document.write("el segundo número es positivo, esto es: " + segundo_es_positivo + "<br>");
     document.write("el primer número es menor o igual que 0, esto es: " + primero_es_negatigo_o_cero + "<br>");
