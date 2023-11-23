@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+    //No usar iniciador de obejtos!!!
+    function ProductosALimenticios(codigo, nombre, precio) {//creamos el objeto con 3 parametroa a recibir
+      this.codigo = codigo;
+      this.nombre = nombre;
+      this.precio = precio;
+      this.imprimeDatos =function(){//función que imprime los datos del objeto.
+        document.write("Código: "+this.codigo + "<br>");
+        document.write("Nombre: "+this.nombre + "<br>");
+        document.write("Precio: "+this.precio + "<br><br><br>");
+      }
+    }
+  </script>
+</head>
+
+<body>
+
+
+  <script>
+    //creamos 3 instancias diferentes
+    var leche = new ProductosALimenticios(1000, "leche", 1.5);
+    var pan = new ProductosALimenticios(1001, "pan", 0.9);
+    var aceite = new ProductosALimenticios(1002,"aceite", 10);
+
+    var supermercado = new Array(leche, pan, aceite);//los metemos en un array
+
+    for (var i = 0; i < supermercado.length; i++) {//recorremos el array supermercado y en cada iteración realizamos la función del objeto.
+      supermercado[i].imprimeDatos();
+    }
+
+  </script>
+
+</body>
+</html>
