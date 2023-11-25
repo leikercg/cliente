@@ -11,7 +11,7 @@
       this.codigo = codigo;
       this.nombre = nombre;
       this.precio = precio;
-      this.imprimeDatos =function(){//función que imprime los datos del objeto.
+      this.imprimeDatos =function(){//función que imprime los datos del objeto. !!declarar la función dentro del objeto!!
         document.write("Código: "+this.codigo + "<br>");
         document.write("Nombre: "+this.nombre + "<br>");
         document.write("Precio: "+this.precio + "$<br><br><br>");
@@ -29,7 +29,7 @@
     var pan = new ProductosALimenticios(1001, "pan", 0.90);
     var aceite = new ProductosALimenticios(1002,"aceite", 10);
 
-    var supermercado = new Array(leche, pan, aceite);//los metemos en un array
+    var supermercado = new Array(leche, pan, aceite);//los metemos en un array de forma manual
 
     for (var i = 0; i < supermercado.length; i++) {//recorremos el array supermercado y en cada iteración realizamos la función del objeto.
       supermercado[i].imprimeDatos();

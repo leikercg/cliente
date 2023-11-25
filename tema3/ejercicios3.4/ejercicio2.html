@@ -40,7 +40,7 @@
       }
 
       //si llega hasta aquí es por que todas las condiciones anteriores no se han cumplido.
-      if (array_letras[parteNumericaNum % 23] == array_dni[8]||(array_letrasminusculas[parteNumericaNum % 23] == array_dni[8] )) { // si el índice del array de letras mayúsculas ó minúsculas que corresponde al resto de la parte numérica entre 23 es igual a la letra del dni introducido en mayúsculas devuelve true.
+      if (array_letras[parteNumericaNum % 23] == array_dni[8]||(array_letrasminusculas[parteNumericaNum % 23] == array_dni[8] )) { // si el índice del array de letras mayúsculas ó minúsculas que corresponde al resto de la parte numérica entre 23 es igual a la letra del dni introducido devuelve true.
         return true
       } else {//si no se cumple esto, devuelve false y sa sale de la función.
         return false;
@@ -59,9 +59,8 @@
       var dni = validarDNI(prompt("Introduce un DNI válido"));
     } while (dni == false);
 
-    if (dni == true) {
-      alert("¡DNI CORRECTO!")
-    }
+      alert("¡DNI CORRECTO!")//si llega aquí es por que la función que evalua si un dni es correcto o no ha devuelto TRUE.
+
 
 
   </script>
