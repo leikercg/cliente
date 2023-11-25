@@ -6,31 +6,47 @@
   <title>Document</title>
 
   <script>
-    function validarDNI(dni){
-      var letras = "TRWAGMYFPDXBNJZSQVHLCKET";
-      var array_letras= letras.split("");//cadena de letras convertida a array
-      document.write (array_letras);
-
-      var array_dni= dni.split("");//dni convertido en array
-      document.write(array_dni);
-
-      var parteNumerica=array_dni.slice(0,8);//parte numerica en forma de array
-      var parteNumericaCadena=parteNumerica.join("");
-      document.write(parteNumericaCadena);
-
-      if(array_dni.length!=9){
+    //USAR SOLO CLASE ARRAY
+    function validarDNI(dni) {
+      if (dni === null) {//si es null, es decir, se ha pulsado cancelar devuelve falso y sale de la función.
+        return false;
+      }
+      if (dni == "") {//si el dni es una cadena vacía devuelve falso y sale de la función
         return false;
       }
 
-      for(var i =0; i<= parseInt(array_dni.length)-2;i++){
-        if(isNaN(array_dni[i])){
+
+      var letras = "TRWAGMYFPDXBNJZSQVHLCKET";
+      var letrasminusculas="trwagmyfpdxbnjzsqvhlcket"
+      var array_letras = letras.split("");//cadena de letras convertida a array
+      var array_letrasminusculas=letrasminusculas.split("");//convertimos la cadena de letras minúsculas a array
+      var array_dni = dni.split("");//dni convertido en array
+      var parteNumerica = array_dni.slice(0, 8);//parte numérica en forma de array
+      var parteNumericaNum = parseInt(parteNumerica.join(""));//parte numerica convertida a una variable numérica
+
+
+
+      if (array_dni.length != 9) {//si la longitud del array dni es 9 devuelve false y sale de la función.
+        return false;
+      }
+      for (var i = 0; i < parseInt(parteNumerica.length); i++) {//recorremos el array con la parte numérica
+        if (isNaN(parteNumerica[i])) {//si alguno de sus 8 elementos no es un numero devuelve false
           return false;
         }
       }
-
-      if(!isNaN(array_dni[8])){
+      if (!isNaN(array_dni[8])) {//si la posicion de la letra es numero devuelve false y sale de la función
+        document.write(array_dni[8]);
         return false;
       }
+
+      //si llega hasta aquí es por que todas las condiciones anteriores no se han cumplido.
+      if (array_letras[parteNumericaNum % 23] == array_dni[8]||(array_letrasminusculas[parteNumericaNum % 23] == array_dni[8] )) { // si el índice del array de letras mayúsculas ó minúsculas que corresponde al resto de la parte numérica entre 23 es igual a la letra del dni introducido en mayúsculas devuelve true.
+        return true
+      } else {//si no se cumple esto, devuelve false y sa sale de la función.
+        return false;
+      }
+
+
 
     }
   </script>
@@ -39,35 +55,14 @@
 <body>
   <script>
 
-   /* var letras = "TRWAGMYFPDXBNJZSQVHLCKET";
-    var dni = prompt("Introduce el dni:");
-    var esnum = true; //creo esta variable para usarla como validador.
+    do {
+      var dni = validarDNI(prompt("Introduce un DNI válido"));
+    } while (dni == false);
 
-    for (i = 0; i <= 8; i++) { //recorro la parte numérica para comprobar que son solo numeros. Si algún carácter no es un numero el validados es numero pasa a falso.
-      if (isNaN(dni.substring(0, 8))) {
-        esnum = false;
-      }
-
-
-    }
-    if (esnum == false) { //si la parte numérica tiene algo distinto a un numero sale una alerta de error.
-      alert("DNI ERRONEO");
+    if (dni == true) {
+      alert("¡DNI CORRECTO!")
     }
 
-
-    if (dni.length == 9 && esnum == true && isNaN(dni.charAt(8))) {//verficamos que la longitud del dni sea 9, que la parte numérica sea solo números y que el último dígito no sea un número.
-      if (letras.charAt(dni.substring(0, 8) % 23) == dni.charAt(8).toUpperCase()) {
-        alert("DNI CORRECTO"); //comprobamos que el último caracter sea la letra correspondiente, pasamos las minúsculas a mayúsculas.
-      } else {
-        alert("DNI ERRONEO");
-      }
-    } else {
-      alert("DNI ERRONEO");
-    }
-*/
-
-
-var hola =validarDNI("73222673b");
 
   </script>
 </body>
