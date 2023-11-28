@@ -18,9 +18,9 @@
 
       var array_letras = new Array();// convierto las cadenas en array, no uso split por que es un método de la clase String.
       var array_letrasminusculas = new Array();
-      var letras = "TRWAGMYFPDXBNJZSQVHLCKET";
-      var letrasminusculas = "trwagmyfpdxbnjzsqvhlcket"
-      for (var i = 0; i < 24; i++) {//aqui se recorre ambas cadenas a la vez y cada indice de cada cadena es agregado a su Array correspondiente.
+      var letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+      var letrasminusculas = "trwagmyfpdxbnjzsqvhlcke"
+      for (var i = 0; i < 23; i++) {//aqui se recorre ambas cadenas a la vez y cada indice de cada cadena es agregado a su Array correspondiente.
         array_letras.push(letras[i]);
         array_letrasminusculas.push(letrasminusculas[i]);
       }
@@ -50,7 +50,9 @@
       }
 
       //si llega hasta aquí es por que todas las condiciones anteriores no se han cumplido.
+
       if (array_letras[parteNumericaNum % 23] == array_dni[8] || (array_letrasminusculas[parteNumericaNum % 23] == array_dni[8])) { // si el índice del array de letras mayúsculas ó minúsculas que corresponde al resto de la parte numérica entre 23 es igual a la letra del dni introducido en mayúsculas devuelve true.
+
         return true
       } else {//si no se cumple esto, devuelve false y sa sale de la función.
         return false;
@@ -70,6 +72,7 @@
     } while (dni == false);
 
     alert("¡DNI CORRECTO!")
+
 
 
 
