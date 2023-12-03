@@ -16,11 +16,21 @@
       }
 
 
+      var array_letras = new Array();// convierto las cadenas en array, no uso split por que es un método de la clase String.
+      var array_letrasminusculas = new Array();
       var letras = "TRWAGMYFPDXBNJZSQVHLCKET";
-      var letrasminusculas="trwagmyfpdxbnjzsqvhlcket"
-      var array_letras = letras.split("");//cadena de letras convertida a array
-      var array_letrasminusculas=letrasminusculas.split("");//convertimos la cadena de letras minúsculas a array
-      var array_dni = dni.split("");//dni convertido en array
+      var letrasminusculas = "trwagmyfpdxbnjzsqvhlcket"
+      for (var i = 0; i < 24; i++) {//aqui se recorre ambas cadenas a la vez y cada indice de cada cadena es agregado a su Array correspondiente.
+        array_letras.push(letras[i]);
+        array_letrasminusculas.push(letrasminusculas[i]);
+      }
+
+
+      var array_dni = new Array();//ahora convertimos el DNI pasado en un Array de la misma manera.
+      for (var i = 0; i < 9; i++) {
+        array_dni.push(dni[i]);
+      }
+
       var parteNumerica = array_dni.slice(0, 8);//parte numérica en forma de array
       var parteNumericaNum = parseInt(parteNumerica.join(""));//parte numerica convertida a una variable numérica
 
@@ -40,7 +50,9 @@
       }
 
       //si llega hasta aquí es por que todas las condiciones anteriores no se han cumplido.
-      if (array_letras[parteNumericaNum % 23] == array_dni[8]||(array_letrasminusculas[parteNumericaNum % 23] == array_dni[8] )) { // si el índice del array de letras mayúsculas ó minúsculas que corresponde al resto de la parte numérica entre 23 es igual a la letra del dni introducido devuelve true.
+
+      if (array_letras[parteNumericaNum % 23] == array_dni[8] || (array_letrasminusculas[parteNumericaNum % 23] == array_dni[8])) { // si el índice del array de letras mayúsculas ó minúsculas que corresponde al resto de la parte numérica entre 23 es igual a la letra del dni introducido en mayúsculas devuelve true.
+
         return true
       } else {//si no se cumple esto, devuelve false y sa sale de la función.
         return false;
@@ -56,10 +68,11 @@
   <script>
 
     do {
-      var dni = validarDNI(prompt("Introduce un DNI válido"));
+      var dni = validarDNI(prompt("Introduce un DNI válido"));//mientras la función validar DNI no devuelva true te pedira que ingreses un dni.
     } while (dni == false);
 
-      alert("¡DNI CORRECTO!")//si llega aquí es por que la función que evalua si un dni es correcto o no ha devuelto TRUE.
+    alert("¡DNI CORRECTO!")
+
 
 
 
