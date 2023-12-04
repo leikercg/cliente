@@ -7,10 +7,10 @@
   <script>
     var i =0;//inicio la variable
       function moverVentana(){
-        ventana.moveBy(5,5);//movimiento relativo respecto a la posicion anterior
+        ventana.moveBy(5,5);//movimiento relativo respecto a la posicion anterior //usa la variable global ya que no se declarp otra variable con la palabra clave var, entiene que te refieres a la variable global
         i++
         if(i<20)
-        setTimeout('moverVentana()',1000); //La funcion se ejecuta cada 100 ms
+        setTimeout('moverVentana()',1000); //La funcion se ejecuta cada 1000 ms //no se usa setInterval por que se llama varias veces a timeout
          else
         ventana.close();
       }
@@ -82,10 +82,10 @@
       document.write("altura máxima "+ screen.height+" <br>");
 
       document.write("<br><b>----------------------window mirar el head--------------------------------</b><br>");
-      var ventana =  window.open("fecha.html","","left=100,top=100,width=250,height=150");
-      ventana.moveTo(100,100);//admite tres parametros, no falta crear un new Window
-      //ventana.setTimeout() hace una funcion cada x msegubndos
-      //ventana.setInterval() realiza una función solo una vez pasados x milisegundos
+      var ventana =  window.open("fecha.html","NombreVentana","left=100,top=100,width=250,height=150,toolbar=yes");
+      ventana.moveTo(500,500);//admite tres parametros, no falta crear un new Window, la vueve a una posicion indicada
+      //ventana.setTimeout()  realiza una función solo una vez pasados x milisegundos
+      //ventana.setInterval() hace una funcion cada x msegubndos
       moverVentana();
 
       document.write("<br><b>----------------------Document--------------------------------</b><br>");
