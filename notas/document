@@ -1,0 +1,73 @@
+Aquí tienes un resumen de algunas propiedades de la interfaz `Document` en JavaScript relacionadas con diferentes aspectos del documento:
+
+### Propiedades de la Interfaz `Document`:
+
+1. **`alinkColor`**
+   - **Descripción:** Color de los enlaces activados (visited).
+   - **Ejemplo de Uso:** `document.alinkColor`
+
+2. **`anchors`**
+   - **Descripción:** Colección de todos los elementos de anclaje `<a>` en el documento.
+   - **Ejemplo de Uso:** `document.anchors`
+
+3. **`applets`**
+   - **Descripción:** Colección de todos los elementos `<applet>` en el documento.
+   - **Ejemplo de Uso:** `document.applets`
+
+4. **`bgColor`**
+   - **Descripción:** Color de fondo del documento.
+   - **Ejemplo de Uso:** `document.bgColor`
+
+5. **`cookie`**
+   - **Descripción:** Contiene todos los cookies asociados con el documento.
+   - **Ejemplo de Uso:** `document.cookie`
+
+6. **`domain`**
+   - **Descripción:** Dominio del servidor que sirvió el documento.
+   - **Ejemplo de Uso:** `document.domain`
+
+7. **`embeds`**
+   - **Descripción:** Colección de todos los elementos `<embed>` en el documento.
+   - **Ejemplo de Uso:** `document.embeds`
+
+8. **`fgColor`**
+   - **Descripción:** Color de primer plano del documento.
+   - **Ejemplo de Uso:** `document.fgColor`
+
+9. **`forms`**
+   - **Descripción:** Colección de todos los elementos `<form>` en el documento.
+   - **Ejemplo de Uso:** `document.forms`
+
+10. **`images`**
+    - **Descripción:** Colección de todos los elementos `<img>` en el documento.
+    - **Ejemplo de Uso:** `document.images`
+
+11. **`lastModified`**
+    - **Descripción:** Fecha y hora de la última modificación del documento.
+    - **Ejemplo de Uso:** `document.lastModified`
+
+12. **`linkColor`**
+    - **Descripción:** Color de los enlaces no visitados.
+    - **Ejemplo de Uso:** `document.linkColor`
+
+13. **`plugins`**
+    - **Descripción:** Colección de todos los complementos (plugins) en el navegador.
+    - **Ejemplo de Uso:** `document.plugins`
+
+14. **`referrer`**
+    - **Descripción:** URL del documento que refirió al actual.
+    - **Ejemplo de Uso:** `document.referrer`
+
+15. **`title`**
+    - **Descripción:** Título del documento.
+    - **Ejemplo de Uso:** `document.title`
+
+16. **`URL`**
+    - **Descripción:** URL completa del documento.
+    - **Ejemplo de Uso:** `document.URL`
+
+17. **`vlinkColor`**
+    - **Descripción:** Color de los enlaces visitados.
+    - **Ejemplo de Uso:** `document.vlinkColor`
+
+Estas propiedades de `Document` proporcionan acceso a diferentes aspectos y elementos del documento HTML, permitiendo la manipulación y obtención de información relevante para la interacción y programación en el contexto de una página web.

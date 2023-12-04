@@ -1,0 +1,113 @@
+Métodos de la Clase window:
+alert(mensaje)
+
+Descripción: Muestra un cuadro de diálogo con el mensaje proporcionado y un botón "Aceptar".
+Ejemplo de Uso: window.alert("Hola, mundo!");
+back()
+
+Descripción: Va hacia atrás en el historial del navegador, similar al botón de retroceso.
+Ejemplo de Uso: window.back();
+blur()
+
+Descripción: Remueve el foco del navegador actual.
+Ejemplo de Uso: window.blur();
+close()
+
+Descripción: Cierra la ventana actual.
+Ejemplo de Uso: window.close();
+confirm(mensaje)
+
+Descripción: Muestra un cuadro de diálogo con un mensaje y botones "Aceptar" y "Cancelar". Devuelve true si se presiona "Aceptar" y false si se presiona "Cancelar".
+Ejemplo de Uso: window.confirm("¿Estás seguro?");
+find(termino)
+
+Descripción: Busca el término especificado en la página actual y resalta las coincidencias.
+Ejemplo de Uso: window.find("buscar");
+focus()
+
+Descripción: Da foco a la ventana actual.
+Ejemplo de Uso: window.focus();
+forward()
+
+Descripción: Avanza en el historial del navegador, similar al botón de avance.
+Ejemplo de Uso: window.forward();
+home()
+
+Descripción: Carga la página de inicio configurada en el navegador.
+Ejemplo de Uso: window.home();
+moveBy(deltaX, deltaY)
+
+Descripción: Mueve la ventana actual por una cantidad especificada en píxeles.
+Ejemplo de Uso: window.moveBy(100, 50);
+moveTo(x, y)
+
+Descripción: Mueve la ventana actual a las coordenadas especificadas.
+Ejemplo de Uso: window.moveTo(500, 300);
+open(url, nombre, especificaciones)
+
+Descripción: Abre una nueva ventana o pestaña del navegador con la URL y las especificaciones proporcionadas.
+Ejemplo de Uso: window.open("https://www.ejemplo.com", "_blank", "width=500,height=400");
+prompt(mensaje, valorPorDefecto)
+
+Descripción: Muestra un cuadro de diálogo con un mensaje y un campo de entrada. Devuelve el valor ingresado por el usuario o null si se presiona "Cancelar".
+Ejemplo de Uso: window.prompt("Ingrese su nombre:", "Usuario");
+print()
+
+Descripción: Abre el cuadro de diálogo de impresión del navegador.
+Ejemplo de Uso: window.print();
+resizeTo(ancho, alto)
+
+Descripción: Cambia el tamaño de la ventana actual a las dimensiones especificadas.
+Ejemplo de Uso: window.resizeTo(800, 600);
+scrollBy(deltaX, deltaY)
+
+Descripción: Desplaza la ventana actual por la cantidad especificada en píxeles.
+Ejemplo de Uso: window.scrollBy(0, 100);
+scrollTo(x, y)
+
+Descripción: Desplaza la ventana actual a las coordenadas especificadas.
+Ejemplo de Uso: window.scrollTo(0, 500);
+setInterval(funcion, intervalo)
+
+Descripción: Ejecuta la función proporcionada de forma repetida a intervalos regulares.
+Ejemplo de Uso: window.setInterval(function() { console.log("Hola"); }, 1000);
+setTimeout(funcion, tiempo)
+
+Descripción: Ejecuta la función proporcionada después de un tiempo específico.
+Ejemplo de Uso: window.setTimeout(function() { console.log("¡Hola después de 3 segundos!"); }, 3000);
+stop()
+
+Detiene la carga de recursos.
+
+
+directories
+
+Descripción: Obsoleto. Indicaba si se debían mostrar barras de direcciones en las nuevas ventanas. Actualmente no se recomienda su uso.
+scrollbars
+
+Descripción: Indica si se deben mostrar las barras de desplazamiento en la ventana actual.
+Ejemplo de Uso: window.scrollbars
+height
+
+Descripción: Altura de la ventana actual.
+Ejemplo de Uso: window.height
+status
+
+Descripción: Barra de estado en la parte inferior de la ventana, donde se pueden mostrar mensajes.
+Ejemplo de Uso: window.status
+menubar
+
+Descripción: Indica si se debe mostrar la barra de menú en la ventana actual.
+Ejemplo de Uso: window.menubar
+toolbar
+
+Descripción: Indica si se debe mostrar la barra de herramientas en la ventana actual.
+Ejemplo de Uso: window.toolbar
+resizable
+
+Descripción: Indica si la ventana actual se puede redimensionar por el usuario.
+Ejemplo de Uso: window.resizable
+width
+
+Descripción: Ancho de la ventana actual.
+Ejemplo de Uso: window.width

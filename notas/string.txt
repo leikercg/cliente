@@ -1,0 +1,148 @@
+
+length
+
+Descripción: Propiedad que devuelve la longitud de la cadena.
+charAt(pos)
+
+Parámetro: pos (Número)
+Descripción: Devuelve el carácter en la posición especificada de la cadena.
+concat(str1, str2, ..., strN)
+
+Parámetros: str1, str2, ..., strN (Cadenas)
+Descripción: Combina dos o más cadenas y devuelve una nueva cadena.
+indexOf(subcadena [, inicio])
+
+Parámetros: subcadena (Cadena), inicio (Número, opcional)
+Descripción: Devuelve la posición de la primera ocurrencia de subcadena en la cadena, o -1 si no se encuentra.
+lastIndexOf(subcadena [, inicio])
+
+Parámetros: subcadena (Cadena), inicio (Número, opcional)
+Descripción: Devuelve la posición de la última ocurrencia de subcadena en la cadena, o -1 si no se encuentra.
+toUpperCase()
+
+Descripción: Devuelve una nueva cadena con todos los caracteres convertidos a mayúsculas.
+toLowerCase()
+
+Descripción: Devuelve una nueva cadena con todos los caracteres convertidos a minúsculas.
+slice(inicio [, fin])
+
+Parámetros: inicio (Número), fin (Número, opcional)
+Descripción: Extrae una porción de la cadena desde inicio hasta fin (sin incluir fin).
+substring(inicio [, fin])
+
+Parámetros: inicio (Número), fin (Número, opcional)
+Descripción: Similar a slice, extrae una porción de la cadena desde inicio hasta fin (sin incluir fin).
+replace(busqueda, reemplazo)
+
+Parámetros: busqueda (Cadena o Expresión Regular), reemplazo (Cadena o Función)
+Descripción: Reemplaza la primera ocurrencia de busqueda con reemplazo.
+split(separador [, límite])
+
+Parámetros: separador (Cadena o Expresión Regular), límite (Número, opcional)
+Descripción: Divide la cadena en un array de subcadenas utilizando el separador.
+trim()
+
+Descripción: Elimina los espacios en blanco al principio y al final de la cadena.
+
+
+
+anchor(nombre)
+
+Crea un enlace HTML <a> alrededor de la cadena con el atributo name establecido en el valor proporcionado como nombre.
+Ejemplo: cadena.anchor("miEnlace")
+fixed()
+
+Envuelve la cadena en una etiqueta <tt> HTML, que se usa para representar texto de teletipo (fuente de ancho fijo).
+Ejemplo: cadena.fixed()
+link(url)
+
+Crea un enlace HTML <a> alrededor de la cadena con el atributo href establecido en la URL proporcionada como url.
+Ejemplo: cadena.link("https://www.ejemplo.com")
+strike()
+
+Envuelve la cadena en una etiqueta <strike> HTML, que representa texto tachado.
+Ejemplo: cadena.strike()
+big()
+
+Envuelve la cadena en una etiqueta <big> HTML, que representa un texto con un tamaño de fuente más grande.
+Ejemplo: cadena.big()
+fontcolor(color)
+
+Envuelve la cadena en una etiqueta <font> HTML con el atributo color establecido en el valor proporcionado como color.
+Ejemplo: cadena.fontcolor("blue")
+match(expresionRegular)
+
+Busca coincidencias en la cadena con la expresión regular proporcionada y devuelve un array de resultados.
+Ejemplo: cadena.match(/patron/)
+sub()
+
+Envuelve la cadena en una etiqueta <sub> HTML, que representa texto subíndice.
+Ejemplo: cadena.sub()
+blink()
+
+Envuelve la cadena en una etiqueta <blink> HTML, que representa texto parpadeante (¡nota que su uso está obsoleto y no es compatible en muchos navegadores modernos!).
+Ejemplo: cadena.blink()
+fontsize(tamaño)
+
+Envuelve la cadena en una etiqueta <font> HTML con el atributo size establecido en el valor proporcionado como tamaño.
+Ejemplo: cadena.fontsize(5)
+replace(valorAntiguo, valorNuevo)
+
+Reemplaza las apariciones de valorAntiguo en la cadena con valorNuevo.
+Ejemplo: cadena.replace("antiguo", "nuevo")
+substr(inicio [, longitud])
+
+Devuelve una subcadena que comienza en inicio y, opcionalmente, tiene una longitud específica.
+Ejemplo: cadena.substr(2, 5)
+fromCharCode(codigo1, codigo2, ...)
+
+Devuelve una cadena creada a partir de los valores de código Unicode proporcionados.
+Ejemplo: String.fromCharCode(65, 66, 67) devuelve la cadena "ABC".
+search(expresionRegular)
+
+Busca la cadena con la expresión regular proporcionada y devuelve la posición del primer carácter coincidente.
+Ejemplo: cadena.search(/patron/)
+substring(inicio [, fin])
+
+Devuelve una subcadena desde inicio hasta fin (sin incluir fin).
+Ejemplo: cadena.substring(2, 5)
+charAt(indice)
+
+Devuelve el carácter en la posición especificada.
+Ejemplo: cadena.charAt(3)
+charCodeAt(indice)
+
+Devuelve el valor Unicode del carácter en la posición especificada.
+Ejemplo: cadena.charCodeAt(3)
+italics()
+
+Envuelve la cadena en una etiqueta <i> HTML, que representa texto en cursiva.
+Ejemplo: cadena.italics()
+small()
+
+Envuelve la cadena en una etiqueta <small> HTML, que representa texto con un tamaño de fuente más pequeño.
+Ejemplo: cadena.small()
+toLowerCase()
+
+Devuelve una nueva cadena con todos los caracteres convertidos a minúsculas.
+Ejemplo: cadena.toLowerCase()
+concat(str1, str2, ..., strN)
+
+Combina dos o más cadenas y devuelve una nueva cadena.
+Ejemplo: cadena.concat("abc", "def")
+lastIndexOf(subcadena [, inicio])
+
+Devuelve la posición de la última ocurrencia de subcadena en la cadena, o -1 si no se encuentra.
+Ejemplo: cadena.lastIndexOf("patron")
+split(separador [, límite])
+
+Divide la cadena en un array de subcadenas utilizando el separador.
+Ejemplo: cadena.split(",")
+toUpperCase()
+
+Devuelve una nueva cadena con todos los caracteres convertidos a mayúsculas.
+Ejemplo: cadena.toUpperCase()
+
+
+
+

@@ -1,0 +1,43 @@
+Math.abs(x)
+
+Parámetro: x (Número)
+Descripción: Devuelve el valor absoluto de x, es decir, la distancia de x a cero.
+Math.ceil(x)
+
+Parámetro: x (Número)
+Descripción: Redondea hacia arriba el valor de x al número entero más cercano.
+Math.floor(x)
+
+Parámetro: x (Número)
+Descripción: Redondea hacia abajo el valor de x al número entero más cercano.
+Math.round(x)
+
+Parámetro: x (Número)
+Descripción: Redondea x al número entero más cercano, redondeando hacia arriba o hacia abajo según sea necesario.
+Math.max(x1, x2, ..., xn)
+
+Parámetros: x1, x2, ..., xn (Números)
+Descripción: Devuelve el número más grande de un conjunto de valores.
+Math.min(x1, x2, ..., xn)
+
+Parámetros: x1, x2, ..., xn (Números)
+Descripción: Devuelve el número más pequeño de un conjunto de valores.
+Math.pow(base, exponente)
+
+Parámetros: base (Número), exponente (Número)
+Descripción: Eleva base a la potencia de exponente.
+Math.sqrt(x)
+
+Parámetro: x (Número)
+Descripción: Devuelve la raíz cuadrada de x.
+Math.random()
+
+Descripción: Devuelve un número pseudoaleatorio en el rango [0, 1).
+Math.sin(x), Math.cos(x), Math.tan(x)
+
+toFixed() número de decimales.
+toPrecision() número total incluyendo decimales.
+
+Parámetro: x (Número, en radianes)
+Descripción: Calcula el seno, coseno y tangente de x, respectivamente.
+Recuerda que algunos métodos, como Math.sin, Math.cos y Math.tan, esperan que el ángulo esté en radianes, por lo que es importante convertir los ángulos de grados a radianes si es necesario.
