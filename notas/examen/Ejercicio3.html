@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function pedirDatos() {
+      var nombre = prompt("Introduce el nombre: ");
+      var apellidos = prompt("Introduce los apellidos: ");
+      do {
+        var saldo = prompt("Introduce el saldo, usa punto en lugar de comas: ");
+      }
+      while (saldo === null || isNaN(saldo) || saldo.trim() == "");
+      var cuenta = new Array(nombre, apellidos, saldo);
+
+      return cuenta;
+    }
+    function CuentaBancaria(myArray){
+      if(Array.isArray(myArray)){
+        this.nombre = myArray[0];
+        this.apellidos=myArray[1];
+        this.cuenta=myArray[2];
+      }
+      this.mensaje=function(){
+        alert("Cuenta creada a nombre de "+this.nombre+" "+ this.apellidos+" con un saldo de "+ this.saldo);
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <script>
+    var myArray = new Array();
+  </script>
+  <input type="button" name="boton" id="boton" value="Crear cuenta bancaria" onclick= "myArray=pedirDatos()">
+  <script>
+    document.write(myArray);
+    var miCuenta=CuentaBancaria(myArray);
+    miCuenta.mensaje();
+
+  </script>
+</body>
+</html>

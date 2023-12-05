@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    function aleatorio() { //
+      var myArray = new Array();
+      var tamanio = 15;//establecemos el tamaño del array
+
+      do {
+        var numero = parseInt(Math.random() * 80 + 20);
+        if (numero % 3 == 0 || numero % 2 == 0) {
+          myArray.push(numero);
+        }
+
+      } while (myArray.length < tamanio);
+
+
+     return myArray;
+
+    }
+
+
+
+    function impar(arreglo){
+       var myArray = new Array();
+       if(Array.isArray(arreglo)){
+         for(var i = 0 ; i < arreglo.length ; i++){
+           if( arreglo[i]%2!=0){
+             arreglo[i]="impar";
+             myArray.push(arreglo[i]);
+           }else{
+             myArray.push(arreglo[i]);
+           }
+         }
+       }
+       return myArray;;
+     }
+
+  </script>
+</head>
+
+<body>
+  <script>
+    var primerArray = aleatorio();
+    var cadena1= primerArray.join("~");
+    document.write(cadena1);
+
+    var segundoArray= impar(primerArray);
+    document.write("<br>");
+    var cadena2 = segundoArray.join("~");
+    document.write(cadena2);
+
+
+
+
+
+  </script>
+
+</body>
+</html>

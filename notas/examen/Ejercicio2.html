@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reloj</title>
+  <script>
+    function reloj() {
+      var fecha = new Date(); //recogemos los datos pedidos por el formato:
+      var diaNum= fecha.getDate();//dia del mes
+      var dia = fecha.getDay();//dia de la semana
+      var mes=fecha.getMonth();
+      var anio=fecha.getFullYear();
+
+      var hora= fecha.getHours();
+      var minutos= fecha.getMinutes();
+      var segundos=fecha.getSeconds();
+
+
+      switch (dia) { //evaluamos la variable dia en 7 casos, si cumple algun caso la variable dia cambia al valor del caso correspondiente
+      case 1:
+        dia = "Lunes";
+        break;
+      case 2:
+        dia = "Martes";
+        break;
+      case 3:
+        dia = "Miercoles";
+        break;
+      case 4:
+        dia = "Jueves";
+        break;
+      case 5:
+        dia = "Viernes";
+        break;
+      case 6:
+        dia = "Sábado";
+        break;
+      case 7:
+        dia = "Domingo";
+        break;
+
+      default:
+        break;
+    }
+
+    switch (mes) {//evaluamos la variable mes en 12 casos, si cumple algun caso la variable mes cambia al valor del caso correspondiente
+      case 1:
+        mes = "Enero";
+        break;
+      case 2:
+        mes = "Febrero";
+        break;
+      case 3:
+        mes = "Marzo";
+        break;
+      case 4:
+        mes = "Abril";
+        break;
+      case 5:
+        mes = "Mayo";
+        break;
+      case 6:
+        mes = "Junio";
+        break;
+      case 7:
+        mes = "Julio";
+        break;
+      case 8:
+        mes = "Agosto";
+        break;
+      case 9:
+        mes = "Septiembre";
+        break;
+      case 10:
+        mes = "Octubre";
+        break;
+      case 11:
+        mes = "Noviembre";
+        break;
+      case 12:
+        mes = "Diciembre";
+        break;
+
+      default:
+        break;
+    }
+    if (minutos.toString().length == 1) {//si la longitud de minutos es igual a 1, le concatenamos un 0 delante, para respetar el formato solicitado.
+      minutos = 0+""+minutos;
+    }
+    if (segundos.toString().length == 1) {//si la longitud de segundos es igual a 1, le concatenamos un 0 delante, para respetar el formato solicitado.
+      segundos = 0+""+segundos;
+    }
+
+    //concatenamos los datos pedidos en una String con los saltos de linea del formato.
+    var texto = "<br>HORA ACTURAL:<br>"+hora+" : "+minutos+" : "+segundos+"<br><br>FECHA ACTUAL:<br>"+dia+", "+diaNum+" "+mes+" "+anio;
+    ;
+    return texto.fontcolor("green");//devolvemos la String establecida pero con la propiedad de color de la string establecida en verde.
+
+    }
+  </script>
+</head>
+
+<body>
+  <script>
+    document.bgColor = "blue";//establecemos el fondo de la ventana principal en azul.
+   // var altura = screen.availHeight / 2 usado para calcular el aprox de la posición
+    //var ancho = screen.availWidth / 2
+
+    miVentana = window.open("", "RELOJ DIGITAL", "height=150 width=300"); //Con esto abrimos una ventana secundaria con las dimensiones pedidas por el enunciado.
+    miVentana.moveTo(800, 400); //con este método movemos la ventana unas cordenadas exacta (con mi pantalla queda bastante centrada si la ventaba principal esta a pantalla completa), depende de la pantalla usada
+    miVentana.document.write(reloj());//Aqui hacemos que el documento de la segunda pantalla escriba lo que devuelve la funcion reloj
+    miVentana.document.bgColor = "yellow"; //Con esto establecemos el color del fondo de la ventana secundaria.
+
+
+
+
+  </script>
+
+</body>
+</html>
