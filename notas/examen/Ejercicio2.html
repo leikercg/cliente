@@ -9,7 +9,7 @@
       var fecha = new Date(); //recogemos los datos pedidos por el formato:
       var diaNum= fecha.getDate();//dia del mes
       var dia = fecha.getDay();//dia de la semana
-      var mes=fecha.getMonth();
+      var mes=fecha.getMonth()+1;
       var anio=fecha.getFullYear();
 
       var hora= fecha.getHours();
@@ -93,7 +93,7 @@
     }
 
     //concatenamos los datos pedidos en una String con los saltos de linea del formato.
-    var texto = "<br>HORA ACTURAL:<br>"+hora+" : "+minutos+" : "+segundos+"<br><br>FECHA ACTUAL:<br>"+dia+", "+diaNum+" "+mes+" "+anio;
+    var texto = "<br>HORA ACTUAL:<br>"+hora+" : "+minutos+" : "+segundos+"<br><br>FECHA ACTUAL:<br>"+dia+", "+diaNum+" "+mes+" "+anio;
     ;
     return texto.fontcolor("green");//devolvemos la String establecida pero con la propiedad de color de la string establecida en verde.
 
@@ -111,6 +111,9 @@
     miVentana.moveTo(800, 400); //con este método movemos la ventana unas cordenadas exacta (con mi pantalla queda bastante centrada si la ventaba principal esta a pantalla completa), depende de la pantalla usada
     miVentana.document.write(reloj());//Aqui hacemos que el documento de la segunda pantalla escriba lo que devuelve la funcion reloj
     miVentana.document.bgColor = "yellow"; //Con esto establecemos el color del fondo de la ventana secundaria.
+miVentana.document.title="RELOJ DIGITAL";
+miVentana.location.reload();
+miVentana.document.write("hola");x
 
 
 

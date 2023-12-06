@@ -1,0 +1,33 @@
+Las funciones pueden ser declaras despues de su uso ya que en la fase de compilación suben hacia arriba.
+
+Al cargar la pagina se ejecuta todo el codigo, por lo que si ponemos botones y codigo despues se ejecutara el codigo, incluso si el boton tiene un codigo.
+
+Si usamos documten.write al terminar de cargarse la pagina sobreescribe todo el documento
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // Definir una función que se ejecutará al cargar la página
+    function miFuncionAlCargar() {
+      document.write("La página se ha cargado completamente. Puedes ejecutar acciones adicionales aquí.");
+    }
+
+    // Asignar la función al evento 'load' del objeto 'window'
+    window.onload = miFuncionAlCargar;
+  </script>
+</head>
+<body>
+  <!-- Contenido de la página -->
+  <h1>hola</h1>
+</body>
+</html>
+
+Se puede escribir codigo en los on click.
+
+
+

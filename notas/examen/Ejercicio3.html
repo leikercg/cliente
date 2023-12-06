@@ -14,15 +14,18 @@
       while (saldo === null || isNaN(saldo) || saldo.trim() == "");
       var cuenta = new Array(nombre, apellidos, saldo);
 
-      return cuenta;
+      // Crear la instancia de CuentaBancaria aquí
+      var miCuenta = new CuentaBancaria(cuenta);
+      miCuenta.mensaje();
     }
+
     function CuentaBancaria(myArray){
       if(Array.isArray(myArray)){
         this.nombre = myArray[0];
-        this.apellidos=myArray[1];
-        this.cuenta=myArray[2];
+        this.apellidos = myArray[1];
+        this.saldo = parseFloat( myArray[2]);
       }
-      this.mensaje=function(){
+      this.mensaje = function(){
         alert("Cuenta creada a nombre de "+this.nombre+" "+ this.apellidos+" con un saldo de "+ this.saldo);
       }
     }
@@ -30,15 +33,12 @@
 </head>
 
 <body>
-  <script>
-    var myArray = new Array();
-  </script>
-  <input type="button" name="boton" id="boton" value="Crear cuenta bancaria" onclick= "myArray=pedirDatos()">
-  <script>
-    document.write(myArray);
-    var miCuenta=CuentaBancaria(myArray);
-    miCuenta.mensaje();
 
+  <script>
+  document.write('<input type="button" name="boton" id="boton" value="Crear cuenta bancaria" onclick="pedirDatos()">');//boton escrito por document, tiene acceso a las mismas funciones
+
+  document.write("hola");//esto se escribe pero no borra.
   </script>
 </body>
 </html>
+
