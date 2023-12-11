@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,18 +15,18 @@
       while (saldo === null || isNaN(saldo) || saldo.trim() == "");
       var cuenta = new Array(nombre, apellidos, saldo);
 
-      // Crear la instancia de CuentaBancaria aquí
-      var miCuenta = new CuentaBancaria(cuenta);
+      var miCuenta= new CuentaBancaria(cuenta);
       miCuenta.mensaje();
-    }
 
+
+    }
     function CuentaBancaria(myArray){
       if(Array.isArray(myArray)){
         this.nombre = myArray[0];
-        this.apellidos = myArray[1];
-        this.saldo = parseFloat( myArray[2]);
+        this.apellidos=myArray[1];
+        this.saldo=myArray[2];
       }
-      this.mensaje = function(){
+      this.mensaje=function(){
         alert("Cuenta creada a nombre de "+this.nombre+" "+ this.apellidos+" con un saldo de "+ this.saldo);
       }
     }
@@ -33,12 +34,17 @@
 </head>
 
 <body>
-
   <script>
-  document.write('<input type="button" name="boton" id="boton" value="Crear cuenta bancaria" onclick="pedirDatos()">');//boton escrito por document, tiene acceso a las mismas funciones
+    var myArray = new Array();
+  </script>
+  <input type="button" name="boton" id="boton" value="Crear cuenta bancaria" onclick= "myArray=pedirDatos()">
+  <script>
+    document.write(myArray);
+    ///// hay que integrar las dos funciones para que se ejecuten en un solo click
+    var miCuenta=CuentaBancaria(myArray);
+    miCuenta.mensaje();
+    //////// todo esto no sirve por que se escribe todo el documento, no se ejecuta al hacer click al boton
 
-  document.write("hola");//esto se escribe pero no borra.
   </script>
 </body>
 </html>
-
