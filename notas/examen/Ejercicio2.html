@@ -107,14 +107,18 @@
    // var altura = screen.availHeight / 2 usado para calcular el aprox de la posición
     //var ancho = screen.availWidth / 2
 
-    miVentana = window.open("", "RELOJ DIGITAL", "height=150 width=300"); //Con esto abrimos una ventana secundaria con las dimensiones pedidas por el enunciado.
+
+
+//miVentana.location.reload(); //si se descomenta esta linea se recarga la pagina y queda en blanco por ser usada inmediatamente despues de ser cargada
+function recarga(){
+  miVentana = window.open("", "RELOJ DIGITAL", "height=150 width=300"); //Con esto abrimos una ventana secundaria con las dimensiones pedidas por el enunciado.
     miVentana.moveTo(800, 400); //con este método movemos la ventana unas cordenadas exacta (con mi pantalla queda bastante centrada si la ventaba principal esta a pantalla completa), depende de la pantalla usada
     miVentana.document.write(reloj());//Aqui hacemos que el documento de la segunda pantalla escriba lo que devuelve la funcion reloj
     miVentana.document.bgColor = "yellow"; //Con esto establecemos el color del fondo de la ventana secundaria.
 miVentana.document.title="RELOJ DIGITAL";
-miVentana.location.reload();
-miVentana.document.write("hola");x
-
+miVentana.document.close();//se cierra tan rapido
+}
+setInterval(recarga,1000);//se cierra tan rapido, pero se abre igual de rapido, por eso se ve un reloj pero en verdad son muchas ventanas abiertas y cerradas secuencialente
 
 
 

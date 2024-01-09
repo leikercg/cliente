@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0px;
+      padding: 0px;
+    }
+    .arriba, .abajo{
+      display: flex;
+    }
+  </style>
+</head>
+<script>
+  function tamanoVentanaNavegador() {//obtener el tamaño
+    // Adaptada de http://www.howtocreate.co.uk/tutorials/javascript/browserwindow
+    var dimensiones = [];
+    if (typeof (window.innerWidth) == 'number') {
+      // No es IE.
+      dimensiones = [window.innerWidth, window.innerHeight];
+    } else if (document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
+      // IE 6 en modo estandar (no quirks).
+      dimensiones = [document.documentElement.clientWidth, document.documentElement.clientHeight];
+    } else if (document.body && (document.body.clientWidth || document.body.clientHeight)) {
+      // IE en modo quirks.
+      dimensiones = [document.body.clientWidth, document.body.clientHeight];
+    }
+    return dimensiones;
+  }
+  var tamanio=tamanoVentanaNavegador();//usar el tamaño definido para el tamaño de los elementos, tiene que estar aqui debajo ya que tiene que tener deifinidor los elementos que se van a usar. TIENE QUE ESTAR DENTRO DEL BODY
+
+  function info(event){
+    var evento = window.event || event;
+
+    if(evento.clientX>tamanio[0]/2 && evento.clientY>tamanio[1]/2 ){
+      alert("negro");
+    }else if(evento.clientX<tamanio[0]/2 && evento.clientY<tamanio[1]/2 ){
+      alert("rojo");
+    }else if (evento.clientX>tamanio[0]/2 && evento.clientY<tamanio[1]/2 ){
+      alert("azul");
+    }else{
+      alert("verde");
+    }
+  }
+
+
+</script>
+
+<body>
+  <div class="arriba">
+    <div id="uno"></div>
+    <div id="dos"></div>
+  </div>
+  <div class="abajo">
+    <div id="tres"></div>
+    <div id="cuatro"></div>
+  </div>
+
+  <script>
+
+
+//establecemos el color y las dimensiones usando js
+  document.getElementById("uno").style.width=tamanio[0]/2+"px";
+  document.getElementById("uno").style.height=tamanio[1]/2+"px";
+  document.getElementById("uno").style.backgroundColor="red";
+
+  document.getElementById("dos").style.width=tamanio[0]/2+"px";
+  document.getElementById("dos").style.height=tamanio[1]/2+"px";
+  document.getElementById("dos").style.backgroundColor="blue";
+
+  document.getElementById("tres").style.width=tamanio[0]/2+"px";
+  document.getElementById("tres").style.height=tamanio[1]/2+"px";
+  document.getElementById("tres").style.backgroundColor="green";
+
+  document.getElementById("cuatro").style.width=tamanio[0]/2+"px";
+  document.getElementById("cuatro").style.height=tamanio[1]/2+"px";
+  document.getElementById("cuatro").style.backgroundColor="black";
+
+//document.getElementById("uno").onclick=info; se podria hacer cuatro veces, pero lo haremos una vez usando la funcion que devuelve el tamaño.
+document.onclick=info;//esto solo asigna el manejador a una función, por que posria estar arriba, tiene que estar aqui si se usa un elemento.
+
+  </script>
+</body>
+</html>

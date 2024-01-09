@@ -1,0 +1,5 @@
+Si una funciion asociada a un evento deveulve false, no se realizara el evento, es decir no tendra comportamiento en el navegador
+pero si devuelve true o no devuelve nada, la funcion seguira su comportamiento predeterminado
+    Este ejemplo sire para no seguir el enlace en caso de que haga click
+
+        <a href="#" onclick="return false ooooo return funcionUsuario(evento, otroPosibleParametro);">Haz clic aquí</a>

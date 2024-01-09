@@ -1,0 +1,8 @@
+Var-->ambito global: usable desde cualquier lado de la pantalla
+    -->ambito funcion: si se declara dentro de una función solo es accesible desde esa funcion.
+
+let-->ambito de bloque: solo es accesible desde ese bloque o funcion
+
+const--> solo accesible desde el bloque que se creaa
+
+si no se usa ninguna de las tres significa que tiene un ambito global

@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Ejemplo de parámetro de objeto de evento</title>
+
+    <script type="text/javascript">
+      function showCoords(event) {
+        alert(
+          "clientX value: " +
+            event.clientX +
+            "\n" +
+            "clientY value: " +
+            event.clientY +
+            "\n",
+        );
+      }
+    </script>
+  </head>
+
+  <body id="body">
+    <p>
+      Para ver las coordinadas del ratón haga clic en cualquier lugar de esta
+      página.
+    </p>
+  </body>
+  <script type="text/javascript">
+    document.getElementById("body").onmousedown = showCoords;//si se quiere asignar el manejador de eventos a un elemento tiene primero que existir, por lo que en este caso se debe declarar despues del body, o al final del documento
+  </script>
+</html>

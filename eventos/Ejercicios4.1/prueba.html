@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script>
+    document.title="prueba";//esto si puede ser usado en el head por que ya tiene elemento al que modificar, tiene prevalencia sobre las etiquetas
+    function muestraInformacion(elEvento) {//parametro para recoger valores
+      var evento = elEvento || window.event;
+      var coordenadaX = evento.clientX;
+      var coordenadaY = evento.clientY;
+
+      document.getElementById("x").value=coordenadaX;//getElement
+      document.getElementById("y").value=coordenadaY;
+
+    }
+    function cambiarColor(evento) {
+      var num = parseInt(Math.random()*3)+1;
+      if(num==1){
+        document.bgColor="red";
+      }else if(num==2){
+        document.bgColor="blue";
+      }else if(num==3){
+        document.bgColor="orange";
+      }
+
+
+    }
+    document.onmousemove = muestraInformacion;//esto asigna la la funcion mostrar información al evento, no lo ejecuta, una vez cargada la pagina cada vez que se cumpla el evento se ejecutara la funcion. No hace falta pasarle paramentro a la función por que lo pasa automaticamente.//
+
+    document.onclick=cambiarColor;
+  </script>
+  <title>ModificandoTitulo</title>
+</head>
+
+<body>
+  <label for="">Coordenada X del Navegador</label>
+  <input type="text" name="" id="x"><br><br>
+  <label for="">Coordenada Y sobre el Navegador</label>
+  <input type="text" id="y">
+<script>
+
+  //inicia el la carga de la pagina con este color
+    document.bgColor= "blue" ;
+</script>
+
+</body>
+</html>

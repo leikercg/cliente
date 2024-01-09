@@ -4,24 +4,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script>
-    function muestraInformacion(elEvento) {
-      var evento = elEvento || window.event;
-      var coordenadaX = evento.clientX;
-      var coordenadaY = evento.clientY;
-
-      alert(coordenadaX);
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
     }
-    document.getElementById("x").onclick = muestraInformacion;
+
+    body,
+    html {
+      display: flex;
+      flex-direction: column;
+
+    }
+
+    body {
+      margin: auto;
+      justify-content: center;
+      height: 100vh;
+    }
+
+  </style>
+
+  <script>
+    function infoRaton(event) {
+      var evento = window.event || event;
+      var navegadorX = evento.clientX;
+      var navegadorY = evento.clientY;
+      var absolutaX = evento.pageX;
+      var absolutaY = evento.pageY;
+      var pantallaX = evento.screenX;
+      var pantallaY = evento.screenY;
+
+      document.getElementById("navegadorX").value = navegadorX;
+      document.getElementById("navegadorY").value = navegadorY;
+      document.getElementById("absolutaX").value = absolutaX;
+      document.getElementById("absolutaY").value = absolutaY;
+      document.getElementById("pantallaX").value = pantallaX;
+      document.getElementById("pantallaY").value = pantallaY;
+
+    }
+    document.onmousemove = infoRaton;
+
   </script>
 </head>
 
 <body>
-  <label for="">Coordenada X del Navegador</label>
-  <input type="text" name="" id="x"><br><br>
-  <label for="">Coordenada Y sobre el Navegador</label>
-  <input type="text" name="" id="y">
-  <script> document.getElementById("x").onclick = muestraInformacion;</script>
+  <div>
+    <label for="">navegador X</label>
+    <input type="text" name="" id="navegadorX">
+    <label for="">navegador Y</label>
+    <input type="text" name="" id="navegadorY">
 
+  </div>
+  <div>
+    absolutaX
+    <input type="text" name="" id="absolutaX">
+    absolutaY
+    <input type="text" name="" id="absolutaY">
+  </div>
+  <div>
+    pantallaX
+    <input type="text" name="" id="pantallaX">
+    pantallaY
+    <input type="text" name="" id="pantallaY">
+  </div>
 </body>
 </html>

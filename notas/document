@@ -1,3 +1,10 @@
+Document.write sobreescribe si se usa ya al ser cargada la pagina por completo, por ejemplo al usar funciones con eventos.
+Si se ejecuntan scripts mientras carga la página no sobreescribe
+
+Si se usan elementos tienen que ser usados despues de la carga, si no dara error.
+
+los atributos de documente se tienen que ejecutar en el body, por ejemplo para el color, para tener un elemento a que mpdificar
+
 Aquí tienes un resumen de algunas propiedades de la interfaz `Document` en JavaScript relacionadas con diferentes aspectos del documento:
 
 ### Propiedades de la Interfaz `Document`:

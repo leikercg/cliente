@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function color(event){//si usamos onkeyup, ya ha cambiado el valor al soltar la tecla, por eso mejor usar onkeypress
+
+      var keyCode = event.keyCode || event.charCode;
+      var char = String.fromCharCode(keyCode);
+      var tamanio = document.getElementById("texto").value.length;
+      if(tamanio >= 3 ||char =="p" ){//si la longitud es mayor de 3 devuelve false, o si lo pulsado es una pe tambien
+        //devuelve false, por lo que no sigue su comportamiento predeterminado y no se inserta la tecla
+        return false;
+      }else{
+        return true;
+      }
+
+    }
+  </script>
+</head>
+<body>
+
+  <input type="text" name="" id="texto" onkeypress="return color(event)">
+
+</body>
+</html>
