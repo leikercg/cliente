@@ -16,13 +16,14 @@
 
       // Restringe la entrada si la longitud es mayor que 10
       if (longitud >= 10) {
-        document.getElementById("area").value = document.getElementById("area").value.slice(0, 10);
+        document.getElementById("area").value = document.getElementById("area").value.slice(0, 10);//esto recoge los valores desde el 0 hasta el 9, no incluye el valor numero 10.
       }
     }
   </script>
 </head>
 <body>
   <label id="contador" for="area">maximo 10 caracteres</label> <br>
-  <textarea name="texto" id="area" cols="30" rows="10" oninput="longitud(event)"></textarea>
+  <textarea name="texto" id="area" cols="30" rows="10" oninput="longitud(event)"></textarea> <!-- oninput tiene en cuenta todos los cambios de entrada, no solo los de teclado a
+  diferencia de keypress, tambien tiene en cuenta entradas del portapapeles, keypress no las tiene en cuenta ya que no hace falta pulsar ninguna tecla para realizar esta función-->
 </body>
 </html>

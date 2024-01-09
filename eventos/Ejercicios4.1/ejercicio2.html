@@ -30,7 +30,12 @@
     }
     return dimensiones;
   }
-  var tamanio=tamanoVentanaNavegador();//usar el tamaño definido para el tamaño de los elementos, tiene que estar aqui debajo ya que tiene que tener deifinidor los elementos que se van a usar. TIENE QUE ESTAR DENTRO DEL BODY
+  function modificado(){//esto aparece dos vesces, una cuando pinchas y otra cuando sueltas
+    modificación = window.event;
+    alert("se ha modificado el tamaño");
+  }
+    window.onresize=modificado;
+  var tamanio=tamanoVentanaNavegador();//usar el tamaño definido para el tamaño de los elementos, tiene que estar aqui debajo ya que tiene que tener deifinidos los elementos que se van a usar. TIENE QUE ESTAR DENTRO DEL BODY
 
   function info(event){
     var evento = window.event || event;
@@ -62,7 +67,7 @@
   <script>
 
 
-//establecemos el color y las dimensiones usando js
+//establecemos el color y las dimensiones usando js en lugar de usar css
   document.getElementById("uno").style.width=tamanio[0]/2+"px";
   document.getElementById("uno").style.height=tamanio[1]/2+"px";
   document.getElementById("uno").style.backgroundColor="red";
@@ -80,7 +85,7 @@
   document.getElementById("cuatro").style.backgroundColor="black";
 
 //document.getElementById("uno").onclick=info; se podria hacer cuatro veces, pero lo haremos una vez usando la funcion que devuelve el tamaño.
-document.onclick=info;//esto solo asigna el manejador a una función, por que posria estar arriba, tiene que estar aqui si se usa un elemento.
+document.onclick=info;//esto solo asigna el manejador a una función, por lo que podria estar arriba, tiene que estar aqui si se usa un elemento.
 
   </script>
 </body>
