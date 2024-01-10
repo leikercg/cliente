@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copiar y Pegar</title>
+</head>
+<body>
+
+<form>
+  <label for="myInput">Introduce texto:</label>
+  <input type="text" id="myInput">
+</form>
+
+<script>
+  function mostrarContenido() {
+    // Obtener el contenido del portapapeles
+    var contenido = (event.clipboardData || window.clipboardData).getData('text');
+
+    // Actualizar el valor del input con el contenido del portapapeles
+    document.getElementById('myInput').value = contenido;
+
+    // Prevenir el comportamiento predeterminado de pegar para evitar duplicar el contenido
+    event.preventDefault();
+  }
+
+  document.onpaste=mostrarContenido;
+</script>
+
+</body>
+</html>

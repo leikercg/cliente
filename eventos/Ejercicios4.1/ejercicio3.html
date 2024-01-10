@@ -4,62 +4,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-</head>
-<script>
-  function permite(elEvento, permitidos, elementoHTML) {
-    // Variables que definen los caracteres permitidos.
-    var numeros = "0123456789";
-    var caracteres = " abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
-    var numeros_caracteres = numeros + caracteres;
-    var teclas_especiales = [34, 38, 59];
-    // 34 = ", 38 = &, 59 = ;
+  <script>
+    function permite(elEvento, permitidos,maximo,longitud) {
+  // Variables que definen los caracteres permitidos.
+  var numeros = "0123456789";
+  var caracteres = " abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+  var numeros_caracteres = numeros + caracteres;
+  var teclas_especiales = [34, 38, 59];
+  // 34 = ", 38 = &, 59 = ;
 
-    // Seleccionar los caracteres a partir del parámetro de la función.
-    switch (permitidos) {
-      case 'num':
-        permitidos = numeros;
-        break;
-      case 'car':
-        permitidos = caracteres;
-        break;
-      case 'num_car':
-        permitidos = numeros_caracteres;
-        break;
-    }
-
-    // Obtener la tecla pulsada.
-    var evento = elEvento || window.event;
-    var codigoCaracter = evento.charCode || evento.keyCode;//obtenemos el código ASCII del caracrer pulsado
-    var caracter = String.fromCharCode(codigoCaracter);//Convertimos el código ASCII a caracter
-
-    // Comprobar si la tecla pulsada es alguna de las teclas especiales.
-    var tecla_especial = false;
-    for (var i in teclas_especiales) {//esto es un iterador
-      if (codigoCaracter == teclas_especiales[i]) {
-        tecla_especial = true;//si el caracter esta entre los caracteres especiales se convierte en true.
-        break;
-      }
-    }
-
-    // Comprobar si la tecla pulsada se encuentra en los caracteres permitidos
-    // o si es una tecla especial, y si la longitud del campo no ha alcanzado el límite.
-    if (elementoHTML.value.length <= 10) {
-      return permitidos.indexOf(caracter) != -1 || tecla_especial;//si devuelve algo distinto a menos uno es que está entre los caracteres permitidos, ó es una tecla especial.
-    } else {
-      return false; // No permite más caracteres si se alcanza la longitud máxima.
-    }
+  // Seleccionar los caracteres a partir del parámetro de la función.
+  switch(permitidos) {
+    case 'num':
+      permitidos = numeros;
+      break;
+    case 'car':
+      permitidos = caracteres;
+      break;
+    case 'num_car':
+      permitidos = numeros_caracteres;
+      break;
   }
 
-</script>
+  // Obtener la tecla pulsada.
+  var evento = elEvento || window.event;
+  var codigoCaracter = evento.charCode || evento.keyCode;
+  var caracter = String.fromCharCode(codigoCaracter);
 
+  // Comprobar si la tecla pulsada es alguna de las teclas especiales.
+  var tecla_especial = false;
+  for (var i in teclas_especiales) {
+    if (codigoCaracter == teclas_especiales[i]) {
+      tecla_especial = true;
+      break;
+    }
+  }
+  // Comprobar si la tecla pulsada se encuentra en los caracteres permitidos
+  // o si es una tecla especial.
+  if(maximo==longitud){//si la longitud es igual al maximo permitido no se admmiten más valores, da igual el que sea
+    return false;
+  }else{//si la longitud es distinta al máximo permitido permite insertar los valores permitidos
+  return permitidos.indexOf(caracter) != -1 || tecla_especial;//si el caracter esta dentro de permitidos devolvera un numero diferente a -1, si no está devolvera -1
+  //al devolver un numero diferente a -1 la condicion devuelve true, en caso contrario devuelve false,en cualquiera caso si se trata de una tecla especial devolvera true siempre
+  }
+}
+
+  </script>
+</head>
 <body>
- Sólo números
-  <input type="text" id="texto" onkeypress="return permite(event, 'num', this)" ><!-- Aqui el this pasa la refernecia (NO EL ID) del campo que activo el hizo saltar el evento, De esta manera sólo actua en este elemento-->
+//Sólo números
+  <input type="text" id="texto1" onkeypress="return permite(event, 'num',10,document.getElementById('texto1').value.length)"><!--Pasamos como argumento el valor maximo y el valor actual del elemento-->
+// Sólo letras.
+<input type="text" id="texto2" onkeypress="return permite(event, 'car',10,document.getElementById('texto2').value.length)">
+// Sólo letras o números.
+<input type="text" id="texto3" onkeypress="return permite(event, 'num_car',10,document.getElementById('texto3').value.length)">
 
- Sólo letras
-  <input type="text" id="texto2" onkeypress="return permite(event, 'car', this)" >
 
-Sólo letras o números
-  <input type="text" id="texto3" onkeypress="return permite(event, 'num_car', this)" >
 </body>
 </html>

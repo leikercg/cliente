@@ -9,7 +9,7 @@
       var evento = event || window.event;
       var longitud = document.getElementById("area").value.length;
       if(longitud>10){
-        document.getElementById("contador").innerHTML = "maximo 10 caracteres, caracteres restantes: " + 0;//por que guardaba una pulsación mas y quedaba -1
+        document.getElementById("contador").innerHTML = "<h1>maximo 10 caracteres, caracteres restantes: " + 0 +"</h1>";//por que guardaba una pulsación mas y quedaba -1
       }else{
       document.getElementById("contador").innerHTML = "maximo 10 caracteres,<br> caracteres restantes: " + (10 - longitud);
       }
