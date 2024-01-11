@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function verificacion() {
+
+      if (document.getElementById("alta").checked == true ) {
+        alert("Se da de alta");
+        formulario.action="ok.html";//usando el nombre no el DOM
+      } else {
+        alert("Se da de baja");
+        document.getElementById("formulario").action="okkk.html";//no existe dará error
+      }
+      formulario.submit();//no funciona desde liveserver
+    }
+  </script>
+</head>
+
+<body>
+
+  <form id="formulario" name="formulario" method="post">
+    Usuario <input type="text" name="usuari" id="usuario"><br><br>
+    Password <input type="password" name="password" id="password"><br><br>
+    Alta <input type="checkbox" name="alta" id="alta">
+    <input type="button" name="validar" value="comprobar" id="validar" onclick="verificacion()">
+  </form>
+  <div id="divAlta">alta</div>
+  <div id="divBaja">baja</div>
+</body>
+</html>

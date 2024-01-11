@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function verificacion() {
+      var usuario = "usuario";
+      var password = "password";
+      if (document.getElementById("usuario").value == usuario && document.getElementById("password").value == password) {
+        alert("correcto");
+        formulario.submit();
+      } else {
+        alert("ERROR");
+      }
+    }
+  </script>
+</head>
+
+<body>
+
+
+  <form action="ok.html" id="formulario" method="post">
+    Usuario <input type="text" name="usuari" id="usuario"><br><br>
+    Password <input type="password" name="password" id="password"><br><br>
+    <input type="button" name="validar" value="comprobar" id="validar" onclick="verificacion()">
+  </form>
+</body>
+</html>
