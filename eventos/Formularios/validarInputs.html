@@ -5,31 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script>
-    function validarNombre(){
-      if(formulario.nombre.value.length==0 ){
+    function validarNombre() {
+      if (formulario.nombre.value.length == 0) {
         alert("Revise el nombre, no es correcto");
         return false;
-      }else{
+      } else {
         return true;
       }
     }
-    function validarTelefono(){
-      if(formulario.telefono.value.length==0 && NaN (formulario.telefono.value)){
-        alert("Revise el telefono, no es correcto");
+    function validarTelefono() {
+      if (formulario.telefono.value.length == 0 || isNaN(formulario.telefono.value)) {
+        alert("Revise el telefono, no es correcto, es NO nuérico o está vacio");
         return false;
-      }else{
+      } else {
         return true;
       }
     }
+    function validarFecha() {
+      if (isNaN(formulario.Anio.value) || isNaN(formulario.Mes.value) || isNaN(formulario.Dia.value)) {
+        alert("La fecha debe ser numérica");
+        return false;
+      } else {
+        return true;
+      }
+    }
+    function valirdarcheck(){
+      if(formulario.validacion.checked){
+        return true;
+      }else{
+        alert ("validadción no aceptada");
+        return false;
+      }
+    }
+
+    function validacionFinal(){
+      if(validarNombre()  && validarTelefono() && validarFecha() && valirdarcheck()){
+        alert("Validación Correcta");
+        return true;
+      }else{
+        return false;
+      }
+    }
+
   </script>
 </head>
+
 <body>
-  <form name="formulario" action="post">
-    Nombre <input type="text" name="nombre" ><br><br>
+  <form name="formulario" action="post" onsubmit="return validacionFinal()">
+    Nombre <input type="text" name="nombre"><br><br>
     Telefono <input type="text" name="telefono"><br><br>
-    Dia <input type="text" name="Dia" id="">Mes <input type="text" name="Mes" id=""> Año <input type="text" name="anio" id=""><br><br>
+    Dia <input type="text" name="Dia" id="">Mes <input type="text" name="Mes" id=""> Año <input type="text" name="Anio" id=""><br><br>
     No soy un robot <input type="checkbox" name="validacion"><br><br>
-    <input type="submit" name="verificar" onclick="validarTelefono()">
+    <input type="submit" value="verificar" name="verificar">
   </form>
 
 </body>
