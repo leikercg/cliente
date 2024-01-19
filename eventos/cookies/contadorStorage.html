@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+     function refrescar(){
+      if(sessionStorage.getItem("contadorSesion")!= null){
+        valor=sessionStorage.getItem("contadorSesion");
+        valor++;
+        sessionStorage.setItem("contadorSesion",valor);
+      }else{
+        sessionStorage.setItem("contadorSesion",1);
+      }
+      document.getElementById("sesion").value=sessionStorage.getItem("contadorSesion");
+    }
+    function refrescarLocal(){
+      if(localStorage.getItem("contadorSesion")!= null){
+        valor=localStorage.getItem("contadorSesion");
+        valor++;
+        localStorage.setItem("contadorSesion",valor);
+      }else{
+        localStorage.setItem("contadorSesion",1);
+      }
+      document.getElementById("local").value=localStorage.getItem("contadorSesion");
+    }
+
+    function abrirVentana(){
+      ventanaSecundaria=window.open();
+
+myWindow1.document.write('<html>');
+myWindow1.document.write('<head>');
+myWindow1.document.write('<title>Ventana Test</title>');
+myWindow1.document.write('</head>');
+myWindow1.document.write('<body>');
+      document.write(" contador de Local/total <input type='text'id='local' disabled ><br><br>");
+
+myWindow1.document.write('</body>');
+myWindow1.document.write('</html>');
+
+    }
+
+  </script>
+</head>
+<body>
+
+  <input type="button" name="" id="boton" value="iniciar"><br><br>
+  contador de sesion:
+  <input type="text" name="" id="sesion" disabled ><br><br>
+  contador de Local/total
+  <input type="text" name="" id="local" disabled ><br><br>
+  <script>abrirVentana();</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function refrescar(){
+      if(document.getElementById("casilla").checked){//si está checked se escribe clave valor
+        localStorage.setItem("maleta","1");
+      }else{
+        localStorage.removeItem("maleta");//si esta deschecker se elimina clave valor
+        localStorage.removeItem("1");
+      }
+      alert(localStorage.getItem("maleta")); //se ontiene el dato almacenado en el par clave valor.
+    }
+  </script>
+</head>
+<body>
+  <input type="checkbox" name="" id="casilla" onchange="refrescar()">Con maletas extra
+</body>
+</html>

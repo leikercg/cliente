@@ -1,6 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Hola</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
   <script>
     function getCookie(c_name) {
       var
@@ -22,19 +25,23 @@
       document.cookie = c_name + "=" + c_value;
     }
     function checkCookie() {
-      var username = getCookie("username");
-      if (username != null && username != "") {
-        alert("Bienvenido " + username);
+      var cont = getCookie("cont");
+      if (cont != null) {
+        document.getElementById("contador").value="Numero de visitas: "+getCookie("cont");
+        valor=parseInt(getCookie("cont"));
+        valor++;
+        setCookie("cont",valor,3);
+
       } else {
-        username = prompt("Por favor, Introduzca su usuario: ", "");
-        if (username != null && username != "") {
-          setCookie("username", username, 365);
-        }
+          setCookie("cont", 1, 3);
       }
     }
   </script>
 </head>
-
-<body><input type="button" name="chequeaCookie" value="Chequear las cookies" onclick="checkCookie();">
+<body>
+  <input type="text" name="" id="contador" readonly>
+  <script>
+  checkCookie();
+  </script>
 </body>
 </html>

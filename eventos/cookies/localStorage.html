@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function refrescar(){
+      if(document.getElementById("casilla").checked){
+        localStorage.setItem("maleta","1");
+      }else{
+        localStorage.removeItem("maleta");
+        localStorage.removeItem("1");
+      }
+      alert(localStorage.getItem("maleta"));
+    }
+  </script>
+</head>
+<body>
+  <input type="checkbox" name="" id="casilla" onchange="refrescar()">Con maletas extra
+</body>
+</html>
