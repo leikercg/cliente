@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="div">Hola mundo</div>
+
+  <script>
+    //se va a hacer la misma linea de antes pero con el DOM, en varios pasos
+
+    //Se crea un nodo de tipo "elemento"
+    var div = document.createElement("div");
+
+    //Se crea un nodo de tipo texto
+    var texto = document.createTextNode("Otro hola mundo");
+
+    //se solicita al nodo de "element el nodo texto para que este sea su hijo"
+    div.appendChild(texto);
+
+    //Se asocia el elemento al arbol para que sea hijo del body
+
+    document.body.appendChild(div);
+
+    //se elimina en varios pasos tambien:
+
+    //Primero se identifica:
+    var div_1 = document.getElementsByTagName("div")[1];//por que se empieza de 0
+
+    //Para eliminar un nodo se hace atraves de su padre:
+    document.body.removeChild(div_1);
+
+    //Las paginas reales tiene muchas clases aniadadas por lo que es mejor hacerlo desde le hijo antes que desde el body:
+    //div.parentNode.removeChild(div_1);//En este caso el padre del div es el body, div.parentNode es equivalente document.body
+    // tambien se puede borrar asi div_1.remove();
+
+
+
+    //REMPLAZAR:
+    var nuevo_div=document.createElement("div");
+
+    //se crea un texto:
+    var nuevo_texto= document.createTextNode("Texto sustituto");
+
+    //Se asocia con su padre:
+    nuevo_div.appendChild(nuevo_texto);
+
+    //identificamos el que deseamos sustituir:
+    var orinal=document.getElementsByTagName("div")[0];
+
+    //se sustituye invocando al padre:
+
+    orinal.parentNode.replaceChild(nuevo_div,orinal);
+
+
+
+    //agreagar un nodo en la parte que deseemos del documento:
+    //creamos un nuevo elemento de tipo div con su texto y se asocia al hijo de tipo texto:
+
+    var div_Colocado=document.createElement("div");
+    var texto_colocado = document.createTextNode("Este texto está colocado donde yo quiero");
+    div_Colocado.appendChild(texto_colocado);
+
+    //Se localiza el nodo donde se quiera agregar:
+    var orinal=document.getElementsByTagName("div")[0];
+
+    document.body.appendChild(div_Colocado);
+
+    div_Colocado.parentElement.insertBefore(div_Colocado,orinal);
+
+
+
+  </script>
+
+</body>
+</html>

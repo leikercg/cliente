@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Árbol DOM cargado</title>
+  <script>
+    function cargada() {
+      if (window.onload) { return true; }
+      return false;
+    }
+    function pulsar() {
+      if (cargada()) { alert("Página cargada correctamente"); }
+    }
+    window.onload=cargada;//asigna la funcion al manejador de eventos
+  </script>
+</head>
+
+<body>
+  <p onclick="pulsar();">Primer párrafo</p>
+</body>
+</html>
