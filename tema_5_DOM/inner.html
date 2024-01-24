@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function renombrar(){
+      document.getElementById("caja").innerHTML="<h1>Nuevo contenido</h1>";//como escritura y modificación
+      var contenido = document.getElementById("caja").innerHTML;
+      alert(contenido);
+    }
+    function alerta(){
+      var contenido = document.getElementById("caja").innerHTML;
+      alert(contenido);//como lectura, recoge toda la sintáxis, <p> incluido
+    }
+    document.getElementById("caja").innerHTML="<h1>Nuevo contenido</h1>";//
+  </script>
+</head>
+<body>
+  <div id="caja">
+    <p>Contenido original de la caja</p>
+  </div>
+  <button onclick="alerta()">Pulsar para ver original</button>
+  <button onclick="renombrar()">Pulsar para renombrar</button>
+
+</body>
+</html>

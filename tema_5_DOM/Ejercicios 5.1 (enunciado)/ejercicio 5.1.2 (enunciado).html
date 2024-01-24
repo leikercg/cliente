@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Ejercicio 5.1.2</title>
+	<script>
+		window.onload = avisos;//al cargar la pagina saltará la alerta
+
+		function avisoInicial() {
+			alert("Se va a eliminar el texto de la página");
+			document.getElementById("textoweb").innerHTML="<p>TEXTO MODIFICADO DESPUÉS DEL PRIMER AVISO</p>";
+
+		}
+		function avisoFinal(){
+
+			alert("Se ha modificado el texto");
+		}
+
+		function avisos(){
+			setTimeout(avisoInicial,1000);
+			setTimeout(avisoFinal,5000);
+		}
+
+	</script>
+</head>
+
+<body>
+	<p id="textoweb">
+		Este texto quedará anulado al cargar el script.
+	</p>
+</body>
+</html>
+
+<!--
+    El ejercicio no muestra el "alert" al cargarse completamente la página,
+	evento "window.onload". ¿Sabes dónde están los errores?
+-->

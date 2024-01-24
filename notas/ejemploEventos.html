@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    ////////////////////////////////ADDLISTENER///////////////////////////
+    // Esta función se ejecutará cuando se haga clic en el botón
+    function handleClick() {
+      alert('¡Se hizo clic en el botón!');
+    }
+
+    // Obtener una referencia al botón por su ID
+    var miBoton = document.getElementById('miBoton');
+
+    // Agregar un event listener para el evento 'click'
+    miBoton.addEventListener('click', handleClick);
+    /////////////////////////////////////////////////////////////////////
+
+
+
+    //////////////////////////MANEJADOR DE EVENTOS SEMANTICO////////////////////
+     var miBoton =document.getElementById("miBoton").onclick=handleClick;
+     //si se usa esto se debe colocar al final del documento o esperar a que se ejucute despues de la carga completa, ya que si no encuentra el elemento con ese id no hará nada o dará error.
+     ///////////////////////////////////////////////////////////////////////////
+
+
+     //otro metodo mirar inline///
+
+
+     //////ejemplo para prevenir el comportamiento por defecto del evento usando addlistener:::::::
+
+     function handleClick(event) {
+      // Prevenir el comportamiento por defecto del enlace
+      event.preventDefault();
+      alert("Hiciste clic en el enlace, pero prevenimos la navegación");
+    }
+
+  </script>
+</head>
+<body>
+
+  <button onclick="handleClick()" id="miBoton">Haz clic</button>
+
+</body>
+</html>

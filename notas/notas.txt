@@ -30,4 +30,8 @@ Si usamos documten.write al terminar de cargarse la pagina sobreescribe todo el 
 Se puede escribir codigo en los on click.
 
 
+setTimeOut(funcion sin (), 1000);1 segundo
+setInterval(funcion sin (), 1000);1 segundo
+
+
 

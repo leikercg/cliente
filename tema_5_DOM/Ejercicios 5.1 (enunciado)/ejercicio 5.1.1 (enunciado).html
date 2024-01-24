@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<title>Ejercicio 5.1.1</title>
+	</head>
+	<body>
+		<button id="pinchable">Pulsa el botón</button>
+		<script>
+			document.getElementById("pinchable").onclick = muestraMensaje; // Manejador de evento semántico.
+			var boton=document.getElementById("pinchable");
+			boton.addEventListener(click,muestraMensaje); //No poner ni parentesis ni ON
+
+			var elemento = 0;
+
+			function muestraMensaje() {
+
+				elemento = elemento + 1;
+				if(elemento==5){
+					alert("el boton se ha pulsado 5 veces");
+				}
+
+			}
+		</script>
+	</body>
+</html>
+
+<!--
+	Manejador de evento semántico:
+	http://dis.um.es/~lopezquesada/documentos/IES_1314/IAW/curso/UT7/libroswebjavascript/www.librosweb.es/javascript/capitulo6/modelo_basico_de_eventos1.html
+-->
