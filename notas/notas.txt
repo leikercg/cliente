@@ -27,11 +27,31 @@ Si usamos documten.write al terminar de cargarse la pagina sobreescribe todo el 
 </body>
 </html>
 
+---------------------------------------------------------------------------
 Se puede escribir codigo en los on click.
 
-
+---------------------------------------------------------------------------
 setTimeOut(funcion sin (), 1000);1 segundo
 setInterval(funcion sin (), 1000);1 segundo
 
 
+---------------------------------------------------------------------------------------
 
+Los valores más comunes de nodeType son:
+
+1: Elemento (Node.ELEMENT_NODE)
+2: Atributo (Node.ATTRIBUTE_NODE)
+3: Texto (Node.TEXT_NODE)
+8: Comentario (Node.COMMENT_NODE)
+9: Documento (Node.DOCUMENT_NODE)
+11: Fragmento de Documento (Node.DOCUMENT_FRAGMENT_NODE)
+
+-----------------------------------------------------------------------------------
+se usa value para elementos de tipo input, select, textarea
+se usa textContent para los demas tipos de elemento de tipo texto
+
+
+-------------------------TECNICA PARA NO TENER QUE ESCRBIR ABAJO DEL BODY--------
+window.onload = function() {
+  document.getElementById("pulsar").onclick = muestraMensaje;
+}

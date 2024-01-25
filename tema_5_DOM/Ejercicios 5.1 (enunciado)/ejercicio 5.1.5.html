@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <a href="#" id="id_link" title="Enlace de prueba">Pulsa aquí</a>
+  <script>
+    // Asignar el manejador de eventos usando addEventListener
+    document.getElementById("id_link").addEventListener("click", ventanas);
+
+    function ventanas() {
+      var nodoElemento = document.getElementById("id_link");
+
+      // Cambiar el valor del atributo title usando setAttribute
+      nodoElemento.setAttribute("title", "hola");
+
+      // Obtener el valor actualizado del atributo title
+      var nuevoValor = nodoElemento.getAttribute("title");
+
+      alert("Nuevo valor del atributo title: " + nuevoValor);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <a href="#" id="id_link" title="Enlace de prueba">Pulsa aquí</a>
+  <script>
+    var nodoElemento = document.getElementById("id_link");
+
+    // Crear un nuevo objeto Attr con nombre "nuevoAtributo" y valor "valorNuevo"
+    var nuevoAtributo = document.createAttribute("nuevoAtributo");
+    nuevoAtributo.value = "valorNuevo";
+
+    // Agregar el nuevo atributo al conjunto de atributos del elemento
+    nodoElemento.attributes.setNamedItem(nuevoAtributo);
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <a href="#" id="id_link" title="Enlace de prueba">Pulsa aquí</a>
+  <script>
+    var enlace = document.getElementById("id_link").onclick=ventanas;//usando manejador de eventos semanticos
+
+
+    function ventanas() {
+      var name = document.getElementById("id_link").attributes[1].nodeName;
+      var value = document.getElementById("id_link").attributes[1].nodeValue;
+      alert("nombre del atributo: " + name);
+      alert("valor de dicho atributo: " + value)
+      //nodeType devuelve un numero que equivale a un numero.
+    }
+  </script>
+</body>
+</html>

@@ -5,12 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
-  <a href="#" id="id_link" title="Enlace de prueba">Pulsa aquí</a>
-
+  <a href="#" id="id_link" title="Enlace de prueba" onclick="ventanas(this)">Pulsa aquí</a>
   <script>
-    var enlace =document.body.childNodes[0];
+    /*
+    var enlace = document.getElementById("id_link");
+    enlace.addEventListener("click",ventanas);
 
+    function ventanas() {
+      var name = document.getElementById("id_link").attributes[1].nodeName;
+      var value = document.getElementById("id_link").attributes[1].nodeValue;
+      alert("nombre del atributo: " + name);
+      alert("valor de dicho atributo: " + value)
+      //nodeType devuelve un numero que equivale a un numero.
+    }*/
+    //////////////////usando THIS/////////////////
+
+    function ventanas(elemento) {
+      var contenido = elemento.textContent;//se usa value para elementos como
+      var name = elemento.attributes[1].nodeName;
+      var value = elemento.attributes[1].nodeValue;
+      alert("nombre del atributo: " + name);
+      alert("valor de dicho atributo: " + value)
+      alert("el contenido del elemento pinchado es: "+contenido)
+      //nodeType devuelve un numero que equivale a un numero.
+    }
   </script>
 </body>
 </html>
