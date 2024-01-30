@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <a href="#" id="id_link" title="Enlace de prueba">Pulsa aquí</a>
+  <script>
+    // Asignar el manejador de eventos usando addEventListener//HAY QUE PONERLO SIN EL ON
+    document.getElementById("id_link").addEventListener("mouseover", mensaje);
+    document.getElementById("id_link").addEventListener("click", pinchar);
+    var UnaVez = false;
+
+    function mensaje() {
+
+      if (UnaVez == false) {
+        var nodoElemento = document.getElementById("id_link");
+
+        //Se crea un nodo de tipo "elemento"
+        var span = document.createElement("span");
+
+        //Se crea un nodo de tipo texto
+        var texto = document.createTextNode("Has pasado el ratón por encima del enlace");
+
+        //se solicita al nodo de "element el nodo texto para que este sea su hijo"
+        span.appendChild(texto);
+
+        //Se asocia el elemento al arbol para que sea hijo del body
+
+        document.body.appendChild(span);
+
+        //le damos una id::
+        span.setAttribute("id","textoCreado");
+        UnaVez = true;
+      }
+    }
+    function pinchar(){
+      //Accedemos al DOM para modificiar su color de fondo
+      nuevoTexto=document.getElementById("textoCreado").style.backgroundColor="#0101ff";
+
+      //Accedemos al DOM para modificar el peso de su fuente.
+      nuevoTexto=document.getElementById("textoCreado").style.fontWeight="bold";
+
+    }
+  </script>
+</body>
+</html>

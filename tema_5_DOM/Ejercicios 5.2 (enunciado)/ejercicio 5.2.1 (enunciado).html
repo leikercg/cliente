@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Ejercicio 5.2.1</title>
+	<script>
+		var contador = 1;
+		function anade() {
+			//obtenemos el elemento
+			lista = document.getElementById("lista");
+
+			//creamos el elemento que vamos a crear junto con su texto:
+			nuevoElemento = document.createElement("li");
+			textoDeLi = document.createTextNode("Nuevo texto " + contador);
+			contador++;
+
+			nuevoElemento2 = document.createElement("li");
+			textoDeLi2 = document.createTextNode("Nuevo texto " + contador);
+
+			nuevoElemento2.appendChild(textoDeLi2);
+			nuevoElemento.appendChild(textoDeLi);
+
+			lista.appendChild(nuevoElemento);
+			lista.appendChild(nuevoElemento2);
+
+			contador++;
+		}
+		function anade1() {
+			//obtenemos el elemento
+			lista = document.getElementById("lista");
+
+			//creamos el elemento que vamos a crear junto con su texto:
+			nuevoElemento = document.createElement("li");
+			textoDeLi = document.createTextNode("Nuevo texto " + contador);
+			contador++;
+			nuevoElemento.appendChild(textoDeLi);
+			lista.appendChild(nuevoElemento);
+			contador++;
+		}
+
+
+	</script>
+</head>
+
+<body>
+	<ul id="lista">
+		<li>Lorem ipsum dolor sit amet</li>
+		<li>Consectetuer adipiscing elit</li>
+		<li>Sed mattis enim vitae orci</li>
+		<li>Phasellus libero</li>
+		<li>Maecenas nisl arcu</li>
+	</ul>
+	<input type="button" value="Añadir elementos" onclick="anade();">
+	<input type="button" value="Añadir de 1 en 1" id="boton">
+	<script>
+		document.getElementById("boton").addEventListener("click",anade1);
+	</script>
+</body>
+</html>

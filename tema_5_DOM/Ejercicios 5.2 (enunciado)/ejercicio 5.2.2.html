@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Ejercicio 5.2.1</title>
+  <script>
+    var contador = 1;
+    function anade() {
+      anadeBr();
+      anadeBr();
+      //obtenemos el elemento
+      form = document.getElementById("form");
+
+      //creamos el elemento que vamos a crear junto con su texto:
+      var nuevoElemento = document.createElement("input");
+
+      form.appendChild(nuevoElemento);
+
+      nuevoElemento.parentElement.insertBefore(nuevoElemento, document.getElementById("anade"));
+    }
+    function anadeBr() {
+      //obtenemos el elemento
+      var form = document.getElementById("form");
+
+      //creamos el elemento que vamos a crear junto con su texto:
+      var nuevoElemento = document.createElement("br");
+
+      form.appendChild(nuevoElemento);
+
+      nuevoElemento.parentElement.insertBefore(nuevoElemento, document.getElementById("anade"));
+    }
+
+    function reset() {
+      var form = document.getElementById("form");
+
+      // iteramos a través de los elementos del formulario
+      for (var i = form.children.length - 3; i > 0; i--) {//asi evita recorer el 0 y los dos ultimos
+        var elemento = form.children[i];
+        form.removeChild(elemento);
+      }
+    }
+
+  </script>
+</head>
+
+<body>
+
+  <form id="form" action="#">
+    <input type="text" id="">
+    <input id="anade" type="button" value="Añadir cajas">
+    <input id="reset" type="button" value="Reset">
+  </form>
+  <script>
+    document.getElementById("anade").addEventListener("click", anade);
+    document.getElementById("reset").addEventListener("click", reset);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <a href="#" id="id_link" title="Enlace de prueba">Pulsa aquí</a>
+  <script>
+    // Asignar el manejador de eventos usando addEventListener//HAY QUE PONERLO SIN EL ON
+    document.getElementById("id_link").addEventListener("click", mensaje);
+
+    function mensaje() {
+      //Creamos el elemento que queremos agrergar
+      var div_Colocado = document.createElement("h1");
+      var texto_colocado = document.createTextNode("Enlace pulsado");
+      div_Colocado.appendChild(texto_colocado);
+
+      //Se localiza el nodo donde se quiera agregar:
+      var orinal = document.getElementById("id_link");
+
+      document.body.appendChild(div_Colocado);
+
+      div_Colocado.parentElement.insertBefore(div_Colocado, orinal);
+
+    }
+
+  </script>
+</body>
+</html>
