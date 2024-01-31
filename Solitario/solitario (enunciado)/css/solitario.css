@@ -1,12 +1,12 @@
 /**
-	Especificaciones CSS para el juego del solitario 
+	Especificaciones CSS para el juego del solitario
 */
 
-/* /*** !!!!!!!!!!!!!!!!!!! CÓDIGO !!!!!!!!!!!!!!!!!!!! 
+/* /*** !!!!!!!!!!!!!!!!!!! CÓDIGO !!!!!!!!!!!!!!!!!!!!
 	Completar los estilos que faltan y modificar al gusto del alumno
 **/
 
-/* Todos los contadores estarán ubicados en la parte inferior 
+/* Todos los contadores estarán ubicados en la parte inferior
    derecha (position absolute) de los respectivos tapetes (position relative).
 */
 .contador {
@@ -23,8 +23,8 @@ h1#titulo {
 }
 
 /* Centrado de los marcadores de tiempo y movimientos */
-h2#marcadores{ 
-	text-align: center; 
+h2#marcadores{
+	text-align: center;
 }
 
 /* Mesa que contiene a los tapetes centrados */
@@ -45,12 +45,12 @@ div.tapete{
 /* Dimensiones y color de fondo para el tapete inicial */
 div.tapete#inicial{
 	width: 340px;
-	height: 340px;			
+	height: 340px;
 	background-color: lightgrey;
 }
 
 /* Dimensiones para todos los tapetes salvo el inicial */
-div.tapete:not(#inicial){				
+div.tapete:not(#inicial){
 	height: 125px;
 	width: 100px;
 }
@@ -63,4 +63,9 @@ div.tapete#sobrantes{
 /* Color de fondo de los tapetes receptores */
 div.tapete.receptor{
 	background-color: lightgreen;
+}
+
+
+img{
+	width: 25px;
 }
