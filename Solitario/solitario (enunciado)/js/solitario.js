@@ -13,27 +13,67 @@ let paso = 5;
 //@param {Array} miArray - El array que se utilizará en la opera
 function colocacionInicial() {
 	var mazo = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-
+	var position = 168;
 	var tapeteIncial = document.getElementById("inicial");
 	for (var i = 1; i <= mazo.length; i++) {
-		var position = 50;
+
 		//Se crea un nodo de tipo "elemento"
 		var img = document.createElement("img");
 		//Se crea un nodo de tipo texto
 		img.setAttribute("src", "imagenes/baraja/" + i + "-cir.png");
-		img.style.position = "relative";
+		img.style.position = "absolute";
 		//Se asocia el elemento al arbol para que sea hijo del body
 		tapeteIncial.appendChild(img);
 		// Con esto, el vértice superior izquierdo de la carta queda en el centro del tapete.
-		img.style.top = position + "%";
-		img.style.left = position + "%";
+		img.style.top = "50%";
+		img.style.left = "50%";
 
 		// Con la siguiente traslación, se centra definitivamente en el tapete: se desplaza,
 		// a la izquierda y hacia arriba (valores negativos) el 50% de las dimensiones de la carta.
-		img.style.transform = "translate(-"+position+"%,-"+position+"%)";
-		position--;
+		img.style.transform = "translate(-" + position + "px,-" + position + "px)";
+		position = position - 5;// para desplazar px por cada carta
 
 	}
+	for (var i = 1; i <= mazo.length; i++) {
+
+		//Se crea un nodo de tipo "elemento"
+		var img = document.createElement("img");
+		//Se crea un nodo de tipo texto
+		img.setAttribute("src", "imagenes/baraja/" + i + "-ova.png");
+		img.style.position = "absolute";
+		//Se asocia el elemento al arbol para que sea hijo del body
+		tapeteIncial.appendChild(img);
+		// Con esto, el vértice superior izquierdo de la carta queda en el centro del tapete.
+		img.style.top = "50%";
+		img.style.left = "50%";
+
+		// Con la siguiente traslación, se centra definitivamente en el tapete: se desplaza,
+		// a la izquierda y hacia arriba (valores negativos) el 50% de las dimensiones de la carta.
+		img.style.transform = "translate(-" + position + "px,-" + position + "px)";
+		position = position - 5;// para desplazar px por cada carta
+
+	}
+	for (var i = 1; i <= mazo.length; i++) {
+
+		//Se crea un nodo de tipo "elemento"
+		var img = document.createElement("img");
+		//Se crea un nodo de tipo texto
+		img.setAttribute("src", "imagenes/baraja/" + i + "-cir.png");
+		img.style.position = "absolute";
+		//Se asocia el elemento al arbol para que sea hijo del body
+		tapeteIncial.appendChild(img);
+		// Con esto, el vértice superior izquierdo de la carta queda en el centro del tapete.
+		img.style.top = "50%";
+		img.style.left = "50%";
+
+		// Con la siguiente traslación, se centra definitivamente en el tapete: se desplaza,
+		// a la izquierda y hacia arriba (valores negativos) el 50% de las dimensiones de la carta.
+		img.style.transform = "translate(-" + position + "px,-" + position + "px)";
+		position = position - 5;// para desplazar px por cada carta
+
+	}
+
+
 
 }
 
