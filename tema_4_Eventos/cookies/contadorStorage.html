@@ -36,7 +36,7 @@
 
 
 
-      ventanaSecundaria.document.write('contador de Local/total <input type="text" name="" id="local" disabled><br><br>');
+      ventanaSecundaria.document.write('contador de total <input type="text" name="" id="local" disabled><br><br>');
 
 
       ventanaSecundaria.document.getElementById("local").value=localStorage.getItem("contadorLocal");
@@ -49,6 +49,12 @@
     }
 
   </script>
+
+Eliminar el par clave-valor:
+var item = sessionStorage.removeItem("maleta");
+var item = sessionStorage.removeItem("1");
+ El método "clear()" borra todos los elementos de la lista:
+sessionStorage.clear();
 </head>
 
 <body>
