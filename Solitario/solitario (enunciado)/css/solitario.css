@@ -47,6 +47,7 @@ div.tapete#inicial{
 	width: 340px;
 	height: 340px;
 	background-color: lightgrey;
+	position: relative;
 }
 
 /* Dimensiones para todos los tapetes salvo el inicial */
@@ -63,9 +64,16 @@ div.tapete#sobrantes{
 /* Color de fondo de los tapetes receptores */
 div.tapete.receptor{
 	background-color: lightgreen;
+	position: relative;
+
+
+
 }
 
-
-img{
-	width:25px;
+.carta{
+	width: 60px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 1;
 }

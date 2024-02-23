@@ -8,84 +8,33 @@ let palos = ["ova", "cua", "hex", "cir"];
 let numeros = [9, 10, 11, 12];
 
 // Paso (top y left) en pixeles de una carta a la siguiente en un mazo:
-let paso = 5;
+let paso = 15;
 
-//@param {Array} miArray - El array que se utilizará en la opera
-function colocacionInicial() {
-	var mazo = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-	var position = 168;
-	var tapeteIncial = document.getElementById("inicial");
-	for (var i = 1; i <= mazo.length; i++) {
-
-		//Se crea un nodo de tipo "elemento"
-		var img = document.createElement("img");
-		//Se crea un nodo de tipo texto
-		img.setAttribute("src", "imagenes/baraja/" + i + "-cir.png");
-		img.style.position = "absolute";
-		//Se asocia el elemento al arbol para que sea hijo del body
-		tapeteIncial.appendChild(img);
-		// Con esto, el vértice superior izquierdo de la carta queda en el centro del tapete.
-		img.style.top = "50%";
-		img.style.left = "50%";
-
-		// Con la siguiente traslación, se centra definitivamente en el tapete: se desplaza,
-		// a la izquierda y hacia arriba (valores negativos) el 50% de las dimensiones de la carta.
-		img.style.transform = "translate(-" + position + "px,-" + position + "px)";
-		position = position - 5;// para desplazar px por cada carta
-
-	}
-	for (var i = 1; i <= mazo.length; i++) {
-
-		//Se crea un nodo de tipo "elemento"
-		var img = document.createElement("img");
-		//Se crea un nodo de tipo texto
-		img.setAttribute("src", "imagenes/baraja/" + i + "-ova.png");
-		img.style.position = "absolute";
-		//Se asocia el elemento al arbol para que sea hijo del body
-		tapeteIncial.appendChild(img);
-		// Con esto, el vértice superior izquierdo de la carta queda en el centro del tapete.
-		img.style.top = "50%";
-		img.style.left = "50%";
-
-		// Con la siguiente traslación, se centra definitivamente en el tapete: se desplaza,
-		// a la izquierda y hacia arriba (valores negativos) el 50% de las dimensiones de la carta.
-		img.style.transform = "translate(-" + position + "px,-" + position + "px)";
-		position = position - 5;// para desplazar px por cada carta
-
-	}
-	for (var i = 1; i <= mazo.length; i++) {
-
-		//Se crea un nodo de tipo "elemento"
-		var img = document.createElement("img");
-		//Se crea un nodo de tipo texto
-		img.setAttribute("src", "imagenes/baraja/" + i + "-cir.png");
-		img.style.position = "absolute";
-		//Se asocia el elemento al arbol para que sea hijo del body
-		tapeteIncial.appendChild(img);
-		// Con esto, el vértice superior izquierdo de la carta queda en el centro del tapete.
-		img.style.top = "50%";
-		img.style.left = "50%";
-
-		// Con la siguiente traslación, se centra definitivamente en el tapete: se desplaza,
-		// a la izquierda y hacia arriba (valores negativos) el 50% de las dimensiones de la carta.
-		img.style.transform = "translate(-" + position + "px,-" + position + "px)";
-		position = position - 5;// para desplazar px por cada carta
-
-	}
-
-
-
-}
-
-colocacionInicial();
-
-// Tapetes
+//////////////////////////////Tapetes////////////////////////////
 let tapete_inicial = document.getElementById("inicial");
 let tapete_sobrantes = document.getElementById("sobrantes");
 let tapete_receptor1 = document.getElementById("receptor1");
 let tapete_receptor2 = document.getElementById("receptor2");
 let tapete_receptor3 = document.getElementById("receptor3");
 let tapete_receptor4 = document.getElementById("receptor4");
+
+//les indicamos que pueden ser superficies potencialmente de recibir algo y que pueden recibir algo
+
+tapete_sobrantes.addEventListener("dragover",dragOver);
+tapete_sobrantes.addEventListener("drop",drop);
+
+tapete_receptor1.addEventListener("dragover",dragOver);
+tapete_receptor1.addEventListener("drop",drop);
+
+tapete_receptor2.addEventListener("dragover",dragOver);
+tapete_receptor2.addEventListener("drop",drop);
+
+tapete_receptor3.addEventListener("dragover",dragOver);
+tapete_receptor3.addEventListener("drop",drop);
+
+tapete_receptor4.addEventListener("dragover",dragOver);
+tapete_receptor4.addEventListener("drop",drop);
+///////////////////////////////////////////////////////////////////////////////////////////////
 
 // Mazos
 let mazo_inicial = [];
@@ -95,7 +44,7 @@ let mazo_receptor2 = [];
 let mazo_receptor3 = [];
 let mazo_receptor4 = [];
 
-// Contadores de cartas
+///////////////////////////// Contadores de cartas ////////////////////////////
 let cont_inicial = document.getElementById("cont_inicial");
 let cont_sobrantes = document.getElementById("cont_sobrantes");
 let cont_receptor1 = document.getElementById("cont_receptor1");
@@ -103,13 +52,71 @@ let cont_receptor2 = document.getElementById("cont_receptor2");
 let cont_receptor3 = document.getElementById("cont_receptor3");
 let cont_receptor4 = document.getElementById("cont_receptor4");
 let cont_movimientos = document.getElementById("cont_movimientos");
+////////////////////////////////////////////////////////////////////////////////////
 
-// Tiempo
-let cont_tiempo = document.getElementById("cont_tiempo"); // span cuenta tiempo
-let segundos = 0;    // cuenta de segundos
-let temporizador = null; // manejador del temporizador
 
-/***** FIN DECLARACIÓN DE VARIABLES GLOBALES *****/
+
+
+
+
+
+/////////////////////// FUNCIONES DRAG AND DROP////////////////////////////
+function dragStart(event) {
+	event.dataTransfer.setData("Text", event.target.id);
+}
+function drop(event){
+	event.preventDefault();
+	let data = event.dataTransfer.getData("Text");
+	event.target.appendChild(document.getElementById(data));
+	document.getElementById(data).removeAttribute("style");
+	document.getElementById(data).style.cssText=("top:20px; left:20px");
+}
+function dragOver(event){
+	event.preventDefault();
+}
+////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+mazo_inicial.forEach(function (element) {
+	alert(element);
+});
+
+
+
+////////////////////////////////////////////// RELLENAR////////////////////////////
+numeros.forEach(numero => {
+	palos.forEach(palo => {
+		let imagen = document.createElement("img");
+		imagen.setAttribute("src", "imagenes/baraja/" + numero + "-" + palo + ".png");
+		imagen.setAttribute("id", numero + "" + palo);
+		imagen.className = "carta";
+		imagen.draggable=true;
+		imagen.addEventListener("dragstart", dragStart); // Asignar la función dragStart al evento dragstart
+		//document.getElementById("inicial").appendChild(imagen);
+		mazo_inicial.push(imagen);//Agregamos cada carta al mazo inicial//
+	});
+});
+
+desordenarArray(mazo_inicial); // desordnamos el array
+
+mazo_inicial.forEach(carta=>{// los agregamos al tapete inicial
+	document.getElementById("inicial").appendChild(carta);
+	carta.style.marginLeft=paso+"px";
+	paso+=10;
+});
+
+
+
+
+
+
+
+
+
 
 
 // Rutina asociada a boton reset: comenzar_juego
@@ -254,3 +261,28 @@ function set_contador(contador, valor) {
 // Desarrollo de la continuación del juego
 // Funciones drag & drop
 /*** !!!!!!!!!!!!!!!!!!! CÓDIGO !!!!!!!!!!!!!!!!!!!! **/
+
+
+
+
+
+
+
+
+
+// Tiempo
+let cont_tiempo = document.getElementById("cont_tiempo"); // span cuenta tiempo
+let segundos = 0;    // cuenta de segundos
+let temporizador = null; // manejador del temporizador
+
+/***** FIN DECLARACIÓN DE VARIABLES GLOBALES *****/
+
+
+
+
+
+//////////////////////////////////////////// FUNCIONES /////////////////////////////
+
+function desordenarArray(array) {// PARA BARAJEAR
+    return array.sort(() => Math.random() - 0.5);
+}
