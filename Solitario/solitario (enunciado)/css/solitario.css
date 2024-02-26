@@ -13,8 +13,17 @@
 	position: absolute;
 	bottom: 0px;
 	right: 3px;
+	height: 20px;
+	width: 20px;
+	background-color: azure;
 }
 
+#contador_movimientos{
+	background-color: bisque;
+
+	width: 30px;
+	height: 30px;
+}
 
 /* Centrado del título y color */
 h1#titulo {

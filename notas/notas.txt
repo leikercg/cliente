@@ -55,3 +55,25 @@ se usa textContent para los demas tipos de elemento de tipo texto
 window.onload = function() {
   document.getElementById("pulsar").onclick = muestraMensaje;
 }
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ offsetparent@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+Sí, también puedes usar la propiedad offsetParent para acceder al elemento padre del elemento que desencadenó el evento. La diferencia principal entre parentNode y offsetParent radica en cómo manejan los elementos posicionados.
+
+La propiedad parentNode simplemente te devuelve el nodo padre del elemento, independientemente de cómo estén posicionados los elementos en el DOM.
+
+Por otro lado, la propiedad offsetParent devuelve el elemento padre más cercano que tiene una posición distinta de static. Esto significa que offsetParent te dará el primer ancestro que establece un contexto de posicionamiento para el elemento, como un elemento con posición relative, absolute o fixed.
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ PARA ENVENTLSITENER SIN THIS @@@@@@@@@@@@@@@@@@@@@@@
+<body>
+    <button id="myButton">Haz clic aquí</button>
+
+    <script>
+        document.getElementById("myButton").addEventListener("click", function() {
+            console.log("Elemento que disparó el evento:", this);
+        });
+    </script>
+</body>

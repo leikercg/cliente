@@ -1,11 +1,15 @@
 /***** INICIO DECLARACIÓN DE VARIABLES GLOBALES *****/
+// Tiempo
+let cont_tiempo = document.getElementById("cont_tiempo"); // span cuenta tiempo
+let segundos = 0;    // cuenta de segundos
+let temporizador = null; // manejador del temporizador
 
 // Array de palos:
 let palos = ["ova", "cua", "hex", "cir"];
 // Array de número de cartas:
 //let numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 // En las pruebas iniciales solo se trabajará con cuatro cartas por palo:
-let numeros = [9, 10, 11, 12];
+let numeros = [ 11, 12];
 
 // Paso (top y left) en pixeles de una carta a la siguiente en un mazo:
 let paso = 15;
@@ -20,20 +24,20 @@ let tapete_receptor4 = document.getElementById("receptor4");
 
 //les indicamos que pueden ser superficies potencialmente de recibir algo y que pueden recibir algo
 
-tapete_sobrantes.addEventListener("dragover",dragOver);
-tapete_sobrantes.addEventListener("drop",drop);
+tapete_sobrantes.addEventListener("dragover", dragOver);
+tapete_sobrantes.addEventListener("drop", drop);
 
-tapete_receptor1.addEventListener("dragover",dragOver);
-tapete_receptor1.addEventListener("drop",drop);
+tapete_receptor1.addEventListener("dragover", dragOver);
+tapete_receptor1.addEventListener("drop", drop);
 
-tapete_receptor2.addEventListener("dragover",dragOver);
-tapete_receptor2.addEventListener("drop",drop);
+tapete_receptor2.addEventListener("dragover", dragOver);
+tapete_receptor2.addEventListener("drop", drop);
 
-tapete_receptor3.addEventListener("dragover",dragOver);
-tapete_receptor3.addEventListener("drop",drop);
+tapete_receptor3.addEventListener("dragover", dragOver);
+tapete_receptor3.addEventListener("drop", drop);
 
-tapete_receptor4.addEventListener("dragover",dragOver);
-tapete_receptor4.addEventListener("drop",drop);
+tapete_receptor4.addEventListener("dragover", dragOver);
+tapete_receptor4.addEventListener("drop", drop);
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 // Mazos
@@ -45,13 +49,13 @@ let mazo_receptor3 = [];
 let mazo_receptor4 = [];
 
 ///////////////////////////// Contadores de cartas ////////////////////////////
-let cont_inicial = document.getElementById("cont_inicial");
-let cont_sobrantes = document.getElementById("cont_sobrantes");
-let cont_receptor1 = document.getElementById("cont_receptor1");
-let cont_receptor2 = document.getElementById("cont_receptor2");
-let cont_receptor3 = document.getElementById("cont_receptor3");
-let cont_receptor4 = document.getElementById("cont_receptor4");
-let cont_movimientos = document.getElementById("cont_movimientos");
+let cont_inicial = document.getElementById("contador_inicial");
+let cont_sobrantes = document.getElementById("contador_sobrantes");
+let cont_receptor1 = document.getElementById("contador_receptor1");
+let cont_receptor2 = document.getElementById("contador_receptor2");
+let cont_receptor3 = document.getElementById("contador_receptor3");
+let cont_receptor4 = document.getElementById("contador_receptor4");
+let cont_movimientos = document.getElementById("contador_movimientos");
 ////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -63,59 +67,252 @@ let cont_movimientos = document.getElementById("cont_movimientos");
 /////////////////////// FUNCIONES DRAG AND DROP////////////////////////////
 function dragStart(event) {
 	event.dataTransfer.setData("Text", event.target.id);
+	console.log(this.id);
+
 }
-function drop(event){
+
+
+function drop(event) {
 	event.preventDefault();
-	let data = event.dataTransfer.getData("Text");
-	event.target.appendChild(document.getElementById(data));
-	document.getElementById(data).removeAttribute("style");
-	document.getElementById(data).style.cssText=("top:20px; left:20px");
+	let data = event.dataTransfer.getData("Text");//id de la carta
+	let contenedor = event.target; //destino
+	let carta = document.getElementById(data);//carta
+	let prodencia = carta.parentNode;
+
+
+	if (contenedor.id == "sobrantes") {
+		ponerEnSobrantes(carta, contenedor, prodencia, event);
+
+	} else if (contenedor.parentNode.id == "sobrantes" && contenedor.className == "carta") {
+
+		centrarCarta(carta);
+		if (exists(carta)) {
+		} else {
+			contenedor.parentNode.appendChild(carta);
+			prodencia.lastChild.addEventListener("dragstart", dragStart);
+			mazo_sobrantes.push(carta);
+			mazo_inicial.pop();
+			cont_movimientos.innerText++;
+		}
+
+	}
+	else if (contenedor.className == "tapete receptor") {
+		if (ponerEnReceptor(carta, contenedor, prodencia)) {
+			removeDragStart(carta);
+			let idCont = contenedor.id;
+			if (idCont == "receptor1") {
+				mazo_receptor1.push(carta);
+			} else if (idCont == "receptor2") {
+				mazo_receptor2.push(carta);
+			} else if (idCont == "receptor3") {
+				mazo_receptor3.push(carta);
+			} else if (idCont == "receptor4") {
+				mazo_receptor4.push(carta);
+			}
+			if (prodencia.id == "sobrantes") {
+				mazo_sobrantes.pop()
+			} else {
+				mazo_inicial.pop();
+			}
+		}
+
+	} else if ((contenedor.className == "carta" || contenedor.className == "contador") && contenedor.parentNode.className == "tapete receptor") {
+		if (ponerEnParent(carta, contenedor, prodencia, event)) {
+			removeDragStart(carta);
+			let idCont = contenedor.parentNode.id;
+			if (idCont == "receptor1") {
+				mazo_receptor1.push(carta);
+			} else if (idCont == "receptor2") {
+				mazo_receptor2.push(carta);
+			} else if (idCont == "receptor3") {
+				mazo_receptor3.push(carta);
+			} else if (idCont == "receptor4") {
+				mazo_receptor4.push(carta);
+			}
+			if (prodencia.id == "sobrantes") {
+				mazo_sobrantes.pop()
+			} else {
+				mazo_inicial.pop();
+			}
+		}
+
+	}
+
+	repartirOtraVez();
+	actualizarContadores();
 }
-function dragOver(event){
+
+function dragOver(event) {
 	event.preventDefault();
 }
+
+
+
+
+
+
+
+
 ////////////////////////////////////////////////////////////////////////////
 
+function actualizarContadores() {
+	cont_inicial.innerText = mazo_inicial.length;
+	cont_sobrantes.innerText = mazo_sobrantes.length;
+
+	cont_receptor1.innerText = mazo_receptor1.length;
+	cont_receptor2.innerText = mazo_receptor2.length;
+	cont_receptor3.innerText = mazo_receptor3.length;
+	cont_receptor4.innerText = mazo_receptor4.length;
+
+	if (mazo_inicial.length==0 && mazo_sobrantes.length==0){
+		alert("enorabuena, te ha costado: "+cont_movimientos.innerText+" movimientos");
+		clearInterval(temporizador);
+	}
 
 
+}
 
+function centrarCarta(carta) {
+	carta.removeAttribute("style");
+	carta.style.cssText = "left:20px; top:20px;";
+}
 
 
 mazo_inicial.forEach(function (element) {
 	alert(element);
+
 });
 
+
+function removeDragStart(carta) {
+	carta.removeEventListener("dragstart", dragStart);
+	carta.draggable = false;
+}
+
+function ponerEnSobrantes(carta, contenedor, prodencia, event) {
+	if (exists(carta)) {
+	} else {
+
+		contenedor.appendChild(carta);
+		prodencia.lastChild.addEventListener("dragstart", dragStart);
+		centrarCarta(carta);
+		mazo_sobrantes.push(carta);
+		mazo_inicial.pop();
+		cont_movimientos.innerText++;
+	}
+}
+
+function ponerEnReceptor(carta, contenedor, prodencia) {
+	color = carta.getAttribute("data-color");
+	num = carta.getAttribute("data-num");
+	ultColor = contenedor.lastChild.getAttribute("data-color");
+	ultNum = contenedor.lastChild.getAttribute("data-num");
+
+	if (carta.getAttribute("data-num") == "12" || (ultNum - 1 == num && color != ultColor)) {
+		contenedor.appendChild(carta);
+		prodencia.lastChild.addEventListener("dragstart", dragStart);
+		console.log("quitar drag");
+		centrarCarta(carta);
+		cont_movimientos.innerText++;
+		return true;
+	} else {
+		cont_movimientos.innerText++;
+		return false;
+	}
+
+}
+
+function ponerEnParent(carta, contenedor, prodencia, event) {
+	color = carta.getAttribute("data-color");
+	num = carta.getAttribute("data-num");
+	ultColor = contenedor.parentNode.lastChild.getAttribute("data-color");
+	ultNum = contenedor.parentNode.lastChild.getAttribute("data-num");
+
+	if (carta.getAttribute("data-num") == "12" || (ultNum - 1 == num && color != ultColor)) {
+		contenedor.parentNode.appendChild(carta);
+		prodencia.lastChild.addEventListener("dragstart", dragStart);
+		centrarCarta(carta);
+		cont_movimientos.innerText++;
+		return true;
+	} else {
+		cont_movimientos.innerText++;
+		return false;
+	}
+
+
+}
+
+function exists(carta) {
+	if (mazo_sobrantes.indexOf(carta) != -1) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 
 
 ////////////////////////////////////////////// RELLENAR////////////////////////////
 numeros.forEach(numero => {
 	palos.forEach(palo => {
+		let color;
+		if (palo == "hex" || palo == "cir") {
+			color = "gris";
+		} else {
+			color = "naranja";
+		}
 		let imagen = document.createElement("img");
 		imagen.setAttribute("src", "imagenes/baraja/" + numero + "-" + palo + ".png");
 		imagen.setAttribute("id", numero + "" + palo);
+		imagen.setAttribute("data-color", color);
+		imagen.setAttribute("data-num", numero);
 		imagen.className = "carta";
-		imagen.draggable=true;
-		imagen.addEventListener("dragstart", dragStart); // Asignar la función dragStart al evento dragstart
 		//document.getElementById("inicial").appendChild(imagen);
 		mazo_inicial.push(imagen);//Agregamos cada carta al mazo inicial//
+		actualizarContadores();
 	});
 });
 
 desordenarArray(mazo_inicial); // desordnamos el array
 
-mazo_inicial.forEach(carta=>{// los agregamos al tapete inicial
+mazo_inicial.forEach((carta, index, array) => {// los agregamos al tapete inicial y hacemos arrasttrable la última carta.
 	document.getElementById("inicial").appendChild(carta);
-	carta.style.marginLeft=paso+"px";
-	paso+=10;
+	carta.style.marginLeft = paso + "px";
+	paso += 10;
+	if (array.length - 1 == index) {
+		carta.draggable = true;
+		carta.addEventListener("dragstart", dragStart); // Asignar la función dragStart al evento dragstart
+	}
 });
 
 
+function repartirOtraVez() {
+	let cartasRestantes = tapete_sobrantes.children.length;
+
+	console.log("hijos de restantes " + cartasRestantes);
+	let zero = tapete_inicial.getElementsByTagName("img").length;
+	console.log("en tapete incial " + zero);
+
+	console.log("mazo incial " + mazo_inicial.length);
+	console.log("mazo sobrantes " + mazo_sobrantes.length);
+	if (zero == 0) {
+		mazo_sobrantes.forEach(carta => {
+
+			tapete_inicial.appendChild(carta);
+			mazo_inicial.push(carta);
+		});
+		mazo_sobrantes = [];
+	}
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
 
 
 
+arrancar_tiempo();
 
 
 
@@ -153,7 +350,7 @@ function comenzar_juego() {
 	set_contador(cont_movimientos, 0);
 
 	// Arrancar el conteo de tiempo
-	arrancar_tiempo();
+
 
 } // comenzar_juego
 
@@ -189,10 +386,10 @@ function arrancar_tiempo() {
 		let seg = Math.trunc(segundos % 60);
 		let min = Math.trunc((segundos % 3600) / 60);
 		let hor = Math.trunc((segundos % 86400) / 3600);
-		let tiempo = ((hor < 10) ? "0" + hor : "" + hor)
+		let tiempo = ((hor < 10) ? "0" + hor : "" + hor) //si hora <10 sera 0 + hora por otro lado si es falso sera hora simplemente
 			+ ":" + ((min < 10) ? "0" + min : "" + min)
 			+ ":" + ((seg < 10) ? "0" + seg : "" + seg);
-		set_contador(cont_tiempo, tiempo);
+		set_contador(contador_tiempo, tiempo);
 		segundos++;
 	}
 	segundos = 0;
@@ -200,6 +397,7 @@ function arrancar_tiempo() {
 	temporizador = setInterval(hms, 1000);
 
 } // arrancar_tiempo
+cont_tiempo.innerText=
 
 
 /**
@@ -254,6 +452,8 @@ function dec_contador(contador) {
 	Similar a las anteriores, pero ajustando la cuenta al valor especificado
 */
 function set_contador(contador, valor) {
+
+	contador.innerText=valor;
 	/*** !!!!!!!!!!!!!!!!!!! CÓDIGO !!!!!!!!!!!!!!!!!!!! **/
 } // set_contador
 
@@ -270,10 +470,7 @@ function set_contador(contador, valor) {
 
 
 
-// Tiempo
-let cont_tiempo = document.getElementById("cont_tiempo"); // span cuenta tiempo
-let segundos = 0;    // cuenta de segundos
-let temporizador = null; // manejador del temporizador
+
 
 /***** FIN DECLARACIÓN DE VARIABLES GLOBALES *****/
 
@@ -284,5 +481,20 @@ let temporizador = null; // manejador del temporizador
 //////////////////////////////////////////// FUNCIONES /////////////////////////////
 
 function desordenarArray(array) {// PARA BARAJEAR
-    return array.sort(() => Math.random() - 0.5);
+	return array.sort(() => Math.random() - 0.5);
+}
+
+
+///////// Contar cartas//////////
+function contarCartas(contenedor) {
+	let hijos = contenedor.children;
+	let vacio = true;
+	let contador = 0;
+	for (var i = 0; i < hijos.length; i++) {
+		if (hijos[i].tagNam == "IMG") {//devuelve mayusculas siempre
+			contador++;
+		}
+	}
+	return contador;
+
 }
