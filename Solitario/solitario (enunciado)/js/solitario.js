@@ -89,7 +89,7 @@ function drop(event) {
 		if (exists(carta)) {
 		} else {
 			contenedor.parentNode.appendChild(carta);
-			prodencia.lastChild.addEventListener("dragstart", dragStart);
+			prodencia.lastElementChild.addEventListener("dragstart", dragStart);
 			mazo_sobrantes.push(carta);
 			mazo_inicial.pop();
 			cont_movimientos.innerText++;
@@ -139,6 +139,7 @@ function drop(event) {
 	}
 
 	repartirOtraVez();
+	pausa();
 	actualizarContadores();
 }
 
@@ -154,6 +155,11 @@ function dragOver(event) {
 
 
 ////////////////////////////////////////////////////////////////////////////
+function pausa() {
+	setTimeout(() => {
+	  // Esta función está vacía, por lo que no se realizará ninguna acción
+	}, 4000); // 2000 milisegundos = 2 segundos
+  }
 
 function actualizarContadores() {
 	cont_inicial.innerText = mazo_inicial.length;
@@ -270,6 +276,7 @@ numeros.forEach(numero => {
 		//document.getElementById("inicial").appendChild(imagen);
 		mazo_inicial.push(imagen);//Agregamos cada carta al mazo inicial//
 		actualizarContadores();
+		console.log(imagen.innerHTML);
 	});
 });
 
@@ -295,10 +302,13 @@ function repartirOtraVez() {
 
 	console.log("mazo incial " + mazo_inicial.length);
 	console.log("mazo sobrantes " + mazo_sobrantes.length);
+	paso=15;
 	if (zero == 0) {
 		mazo_sobrantes.forEach(carta => {
-
+			carta.style.marginLeft = paso + "px";
+			paso+="10px";
 			tapete_inicial.appendChild(carta);
+
 			mazo_inicial.push(carta);
 		});
 		mazo_sobrantes = [];
@@ -397,7 +407,6 @@ function arrancar_tiempo() {
 	temporizador = setInterval(hms, 1000);
 
 } // arrancar_tiempo
-cont_tiempo.innerText=
 
 
 /**

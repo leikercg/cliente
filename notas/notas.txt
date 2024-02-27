@@ -77,3 +77,42 @@ Por otro lado, la propiedad offsetParent devuelve el elemento padre más cercano
         });
     </script>
 </body>
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@lastChild devuelve saltos de linea(enter como hijos)
+
+
+event.type: Devuelve el tipo de evento (por ejemplo, "click", "mouseover", etc.).
+event.target: Devuelve el elemento en el que se originó el evento.
+event.currentTarget: Devuelve el elemento actual que maneja el evento.
+event.preventDefault(): Método para prevenir el comportamiento predeterminado del evento.
+event.stopPropagation(): Método para detener la propagación del evento en el DOM.
+Atributos (también conocidos como campos):
+
+event.clientX y event.clientY: Coordenadas x e y del cursor en relación con la ventana del navegador.
+event.keyCode y event.key: Código de tecla y valor de la tecla presionada en un evento de teclado.
+event.pageX y event.pageY: Coordenadas x e y del cursor en relación con el documento.
+event.timeStamp: Marca de tiempo del momento en que ocurrió el evento.
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ACCESO A TODOS LOS ATRIBUTOS@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+var elemento = document.getElementById("miElemento");
+var atributos = elemento.attributes;
+
+// Accediendo a los atributos y sus valores utilizando métodos específicos
+for (var i = 0; i < atributos.length; i++) {
+    var nombreAtributo = atributos[i].nodeName;
+    var valorAtributo = atributos[i].nodeValue;
+    console.log("Nombre: " + nombreAtributo + ", Valor: " + valorAtributo);
+}
+
+// O tratando el objeto NamedNodeMap como un array
+for (var i = 0; i < atributos.length; i++) {
+    var nombreAtributo = atributos[i].name;
+    var valorAtributo = atributos[i].value;
+    console.log("Nombre: " + nombreAtributo + ", Valor: " + valorAtributo);
+}
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -31,3 +31,17 @@ Array.isArray(value) comprueba si value es un array.
 Por favor tener en cuenta que sort, reverse y splice modifican el propio array.
 
 Estos métodos son los más utilizados y cubren el 99% de los casos. Pero existen algunos más:
+
+
+
+@@@@crear copia para no modificar array por que se pasan por referencia@@@@
+
+var originalArray = [1, 2, 3];
+var copiaArray = originalArray.slice();
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
+ocultos=[false,false,false];
+let ocultos = new Array(false, false, false);

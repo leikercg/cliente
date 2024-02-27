@@ -10,8 +10,27 @@
       var contenido = document.getElementById("caja").innerHTML;
       alert(contenido);
     }
+    function pausa() {
+	setTimeout(() => {
+	  // Esta función está vacía, por lo que no se realizará ninguna acción
+	}, 4000); // 2000 milisegundos = 2 segundos
+  }
+
+  function pausa4000ms() {
+    console.log("Inicio de la pausa");
+
+    const inicio = Date.now(); // Obtener el tiempo actual en milisegundos
+
+    // Bucle vacío que se ejecuta hasta que pasan 4000 milisegundos (4 segundos)
+    while (Date.now() - inicio < 4000) {}
+
+    console.log("Fin de la pausa");
+}
     function alerta(){
-      var contenido = document.getElementById("caja").innerHTML;
+      pausa4000ms();
+      var contenido = document.getElementById("caja").outerHTML="hola";
+      //var contenido = document.getElementById("caja").outerHTML; todo la etiqueta dentro y fuera si se cambia se puede escribir HTML
+     // var contenido = document.getElementById("caja").innerHTML; lo de dentro
       alert(contenido);//como lectura, recoge toda la sintáxis, <p> incluido
     }
     document.getElementById("caja").innerHTML="<h1>Nuevo contenido</h1>";//
@@ -20,6 +39,7 @@
 <body>
   <div id="caja">
     <p>Contenido original de la caja</p>
+    <p>adios</p>
   </div>
   <button onclick="alerta()">Pulsar para ver original</button>
   <button onclick="renombrar()">Pulsar para renombrar</button>
