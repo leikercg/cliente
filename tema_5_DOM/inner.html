@@ -27,8 +27,8 @@
     console.log("Fin de la pausa");
 }
     function alerta(){
-      pausa4000ms();
-      var contenido = document.getElementById("caja").outerHTML="hola";
+
+      var contenido = document.getElementById("caja").innerText;
       //var contenido = document.getElementById("caja").outerHTML; todo la etiqueta dentro y fuera si se cambia se puede escribir HTML
      // var contenido = document.getElementById("caja").innerHTML; lo de dentro
       alert(contenido);//como lectura, recoge toda la sintáxis, <p> incluido
