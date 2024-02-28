@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #contenedor_1,
+    #contenedor_2 {
+      margin-top: 30px;
+      width: 100px;
+      height: 100px;
+      border: 2px solid black;
+    }
+
+    #bola1 {
+      width: 30px;
+      height: 30px;
+      background-color: brown;
+      margin: 5px;
+    }
+
+    #bola2 {
+      width: 30px;
+      height: 30px;
+      background-color: green;
+      margin: 5px;
+
+    }
+    #guardar{
+      padding: 5px;
+      margin-top: 20px;
+      position: relative;
+      left: 300px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div id="bola1" ondrag="drag(event)" ondragend="dragEnd(event)"></div>
+  <div id="bola2" ondrag="drag(event)" ondragend="dragEnd(event)"></div>
+
+  <div id="contenedor_1" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)"></div>
+  <div id="contenedor_2"></div>
+
+  <button id="guardar">Guardar</button>
+
+  <button id="recuperar">recuperar</button>
+
+  <script>
+    let caja1=[];
+    let caja2=[];
+
+    document.getElementById("guardar").addEventListener("click",guardar);
+    document.getElementById("recuperar").addEventListener("click",recuperar);
+
+    document.getElementById("contenedor_1").addEventListener("drop", drop);
+    document.getElementById("contenedor_2").addEventListener("drop", drop);
+
+    document.getElementById("contenedor_1").addEventListener("dragover", dragOver);
+    document.getElementById("contenedor_2").addEventListener("dragover", dragOver);
+
+
+    document.getElementById("bola1").addEventListener("dragstart", dragStart); // pero no es draggable
+    document.getElementById("bola1").draggable=true;
+
+    document.getElementById("bola2").onclick = giveDrag; /*hacer draggable con un click-------------------------------------PREGUNTAR por que se hace clase y como pasar una funcion cuando tiene parametros*/
+
+    /*document.getElementById("contenedor_2").addEventListener("dragover", function(event) {
+    dragOver(event, parametro1, parametro2); // Aquí pasas los parámetros que necesitas      --------------------- con parámetros;
+    });
+    */
+
+    function recuperar(){
+      let bola1=localStorage.getItem("bola1");
+      console.log(bola1);//bola en formato json
+      console.log(JSON.parse(bola1));//bola en formato string
+      elemento=new DOMParser().parseFromString(JSON.parse(bola1), 'text/html').body.firstElementChild;
+      document.getElementById("contenedor_1").appendChild(elemento);
+      elemento.addEventListener("dragstart",dragStart);
+      elemento.draggable=true;
+      console.log(elemento);
+    }
+
+    function guardar(){
+      caja1=document.getElementById("contenedor_1").children;
+      caja2=document.getElementById("contenedor_2").children;
+
+    console.log(caja1);
+    console.log(caja2);
+    console.log("----------------------------------------------");
+    console.log(JSON.stringify(caja1[0].outerHTML));
+    localStorage.setItem("bola1",JSON.stringify(caja1[0].outerHTML));
+
+
+    }
+/***********************************************************************************************************/
+    function giveDrag(event) {
+      event.target.addEventListener("dragstart", dragStart);
+      this.draggable = "true";
+      console.log(this.id);
+    }
+
+    function dragStart(event) {
+      event.dataTransfer.setData("Text", event.target.id);
+      console.log(this.id + " esta siendo arrastrado");
+       event.target.style.width="50px";
+      event.target.style.height="50px";
+    }
+
+    function dragOver(event) {
+      event.preventDefault();
+      console.log("dropOver");
+    }
+    function drop(event) {
+      event.preventDefault();
+      var data = event.dataTransfer.getData("Text");
+      event.target.appendChild(document.getElementById(data));
+      console.log("dropppppp");
+
+    }
+
+    function drag(event){
+      document.getElementById("contenedor_2").style="border: 2px solid red;"
+
+    }
+
+    function dragEnd(event){
+      event.target.style="background-color:yellow;";
+      document.getElementById("contenedor_2").style=""
+    }
+    function dragEnter(){
+      document.getElementById("contenedor_1").style="border: 2px solid red;"
+    }
+    function dragLeave(){
+      document.getElementById("contenedor_1").style="";
+    }
+
+
+  </script>
+</body>
+</html>

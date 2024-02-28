@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    function elementoHTMLtoJSON(elemento) {
+    var json = {
+        tagName: elemento.tagName,
+        id: elemento.id,
+        classList: Array.from(elemento.classList),
+        attributes: [],
+        content: elemento.textContent.trim()
+    };
+
+    // Obtener y serializar los atributos del elemento
+    for (var i = 0; i < elemento.attributes.length; i++) {
+        var attribute = elemento.attributes[i];
+        json.attributes.push({ name: attribute.name, value: attribute.value });
+    }
+
+    return json;
+}
+
+// Ejemplo de uso
+var miElemento = document.getElementById('miElemento');
+var elementoJSON = elementoHTMLtoJSON(miElemento);
+var jsonString = JSON.stringify(elementoJSON);
+console.log(jsonString);
+
+
+
+
+
+
+/*------------------------------------------------------------------------*/
+<div id="miElemento" onclick="alert('Haz hecho clic en el elemento')">Haz clic aquí</div>
+
+/*****/
+// Obtener el elemento
+var elemento = document.getElementById("miElemento");
+
+// Crear un objeto con la información del elemento
+var elementoData = {
+    id: elemento.id,
+    tipoEvento: "onclick",
+    funcionEvento: elemento.getAttribute("onclick")
+};
+
+// Convertir el objeto a JSON
+var elementoJson = JSON.stringify(elementoData);
+
+// Guardar el JSON en localStorage
+localStorage.setItem("elementoJson", elementoJson);
+/***** RECUPERACIÓN  *****************************************************************************/
+
+// Recuperar el JSON de localStorage
+var elementoJson = localStorage.getItem("elementoJson");
+
+// Convertir el JSON de nuevo a un objeto
+var elementoData = JSON.parse(elementoJson);
+
+// Crear el elemento con su ID
+var nuevoElemento = document.createElement("div");
+nuevoElemento.id = elementoData.id;
+
+// Restaurar el manejador de eventos
+nuevoElemento.setAttribute(elementoData.tipoEvento, elementoData.funcionEvento);
+
+// Agregar el nuevo elemento al DOM
+document.body.appendChild(nuevoElemento);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>

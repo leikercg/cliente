@@ -1,0 +1,10 @@
+Local storage solo puede almacenar texto, por eso los convertimo a formato json.
+
+Json.stringify(valor) convierte objetos a texto en formato json, se le puede pasar texto, numeros, objetosy arrays, pero no elementos html.
+
+en caso de array de elementos debemos converitrlos en texto con outer por ejemplo o pasarlos a objeto que estos si son convertibles a texto directamente
+
+para recuperarlos hacemos Json.parse y obtendremos un array de elementos de texto, despues usar parse dom para crear documentos enteros de texto y coger el primer
+hijo crear elementos de cualquier tipo y luego con puter sustituir todo el elemento.
+
+se puede recuperar con objetos, y añadir atributo por atributo para crear el nuevo elemento.
