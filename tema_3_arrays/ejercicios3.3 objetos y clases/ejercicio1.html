@@ -45,8 +45,16 @@
     document.write("<br><br> A partir de aqui se imprimen los datos de obejto mi coche creado con el iniciador de objetos<br>");
 
     Coche2.imprime();
+console.log(JSON.stringify(Coche2));
+console.log(JSON.stringify(mi_coche));
 
-
+let arrayy=[];
+arrayy.push(Coche2);
+arrayy.push(mi_coche);
+arrayy.push("hola");
+console.log(arrayy);
+console.log("------------------------------------------------");
+console.log(JSON.stringify(arrayy));/*no hace falta convertir los obejtos a texto , se convierten automaticamente.*/
   </script>
 
 </body>
