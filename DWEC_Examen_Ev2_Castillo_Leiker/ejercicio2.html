@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form action="ok.html" method="get" id="formulario">
+    <fieldset>
+      <legend>Formulario</legend>
+      Número de cuenta: <input type="text" id="cuenta" onchange="validarDigitos()"> Tiene que tener 20 dígitos <br><br>
+      Seis caractéres: <input type="text" id="caracteres" onchange="validarCaracteres()"> Tiene que tener exactamente 6 <br> <br>
+      Antes relleno: <input type="text" id="relleno" onkeypress="return validarRellenado(event)" dis> Si el de antes !=6, desactivado <br> <br>
+      <button id="validar" onclick="validarTodo(event)"> Validar</button>
+    </fieldset>
+  </form>
+
+  <script>
+    let cuenta = document.getElementById("cuenta");
+    let caracteres = document.getElementById("caracteres");
+    let relleno = document.getElementById("relleno");
+    let anteriorCorrecto = false;
+
+
+    let primerCampoCorrecto=false;
+    /* Validar cuenta*/
+    function validarDigitos() {
+      if (cuenta.value.length == 20 && !isNaN(parseInt(cuenta.value))) {
+        primerCampoCorrecto=true;
+      } else {
+        alert("No se ha rellenado correctamente");
+        primerCampoCorrecto=false;
+      }
+    }
+
+    /*validar carecteres*/
+    function validarCaracteres() {
+      console.log(caracteres.value);
+      if (!(/^\w{6}$/.test(caracteres.value))) {
+        alert("No se ha rellenado correctamente, no tiene 6 alfanumérico");
+        anteriorCorrecto=false;
+      } else {
+        anteriorCorrecto = true;
+      }
+      if (anteriorCorrecto == true) {
+        alert("anterior correcto");
+      } else {
+        false;
+      }
+    }
+    /* Validar si esta rellenado el anterior*/
+    function validarRellenado(event) {
+
+      var evento = event || window.event;
+      var codigoCaracter = evento.charCode || evento.keyCode;
+      var caracter = String.fromCharCode(codigoCaracter);
+      if (anteriorCorrecto == false) {
+        return false;
+      }
+    }
+    /*boton validar*/
+
+    function validarTodo(event){
+      if(primerCampoCorrecto==true && anteriorCorrecto==true){
+        alert("todo correcto");
+        document.getElementById("formulario").submit();
+      }else{
+        alert("uno de los dos primeros campos está mal");
+      }
+
+    }
+
+
+  </script>
+</body>
+</html>

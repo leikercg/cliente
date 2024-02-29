@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .p {
+      text-align: right;
+      font-family: "Arial";
+      font-size: 40px;
+      margin: 0.25cm 0.25cm 0.25cm 0.25cm;
+
+    }
+
+    .c {
+      text-align: center;
+      font-family: "Arial";
+      font-size: 40px;
+      margin: 0.25cm 0.75cm 0.25cm 0.75cm;
+    }
+
+  </style>
+</head>
+
+<body onclick="click()">
+  <form>
+    <div>
+      <table border="2">
+        <tr>
+          <td colspan="5">
+            <div class="p" id="pantalla">0</div>
+          </td>
+        </tr>
+        <tr>
+          <td id="7">
+            <div class="c" onclick="pulsar(this)" onmouseup="quitarFondo(this)" onmousedown="ponerFondo(this)" >7</div>
+          </td>
+          <td id="8">
+            <div class="c" onclick="pulsar(this)" onmouseup="quitarFondo(this)" onmousedown="ponerFondo(this)">8</div>
+          </td>
+          <td id="9">
+            <div class="c" onclick="pulsar(this)" onmouseup="quitarFondo(this)" onmousedown="ponerFondo(this)">9</div>
+          </td>
+          <td id="/">
+            <div class="c" onclick="pulsarOperador(this)" onmouseup="quitarFondo(this)" onmousedown="ponerFondo(this)">/</div>
+          </td>
+          <td id="c">
+            <div class="c" onclick="pulsarCalcelar(this)" onmouseup="quitarFondo(this)" onmousedown="ponerFondo(this)">C</div>
+          </td>
+        </tr>
+        <tr>
+          <td id="4">
+            <div class="c" onclick="pulsar(this)" onmouseup="quitarFondo(this)" onmousedown="ponerFondo(this)">4</div>
+          </td>
+          <td id="5">
+            <div class="c" onclick="pulsar(this)" onmouseup="quitarFondo(this)" onmousedown="ponerFondo(this)">5</div>
+          </td>
+          <td id="6">
+            <div class="c" onclick="pulsar(this)" onmouseup="quitarFondo(this)" onmousedown="ponerFondo(this)">6</div>
+          </td>
+          <td id="x">
+            <div class="c" onclick="pulsarOperador(this)" onmouseup="quitarFondo(this)" onmousedown="ponerFondo(this)">x</div>
+          </td>
+          <td id="=" rowspan="3">
+            <div class="c" onclick="pulsarIgual(this)" onmouseup="quitarFondo(this)" onmousedown="ponerFondo(this)">=</div>
+          </td>
+        </tr>
+        <tr>
+          <td id="1">
+            <div class="c" onclick="pulsar(this)" onmouseup="quitarFondo(this)" onmousedown="ponerFondo(this)">1</div>
+          </td>
+          <td id="2">
+            <div class="c" onclick="pulsar(this)" onmouseup="quitarFondo(this)" onmousedown="ponerFondo(this)">2</div>
+          </td>
+          <td id="3">
+            <div class="c" onclick="pulsar(this)" onmouseup="quitarFondo(this)" onmousedown="ponerFondo(this)">3</div>
+          </td>
+          <td id="-">
+            <div class="c" onclick="pulsarOperador(this)" onmouseup="quitarFondo(this)" onmousedown="ponerFondo(this)">-</div>
+          </td>
+        </tr>
+        <tr>
+          <td id="0" colspan="3">
+            <div class="c" onclick="pulsar(this)" onmouseup="quitarFondo(this)" onmousedown="ponerFondo(this)">0</div>
+          </td>
+          <td id="+">
+            <div class="c" onclick="pulsarOperador(this)" onmouseup="quitarFondo(this)" onmousedown="ponerFondo(this)">+</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+  <script>
+    let pantalla = document.getElementById("pantalla");
+
+    let parametro1 = "";
+    let parametro2 = "";
+
+    let operador = "";
+
+    let resultado = "";
+
+    function ponerFondo(elemento){
+      elemento.style="background-color:red;"
+    }
+
+    function quitarFondo(elemento){
+      elemento.style=" background-color: white ;";
+    }
+
+    function pulsar(elemento) {
+      if (parametro1 == "") {//si esta vacio se rellena
+        parametro1 = elemento.innerText;
+        pantalla.innerText = parametro1;
+
+      }
+      else{//si esta lleno el primero se rellana el segundo
+        parametro2 = elemento.innerText;
+        pantalla.innerText = parametro2;
+      }
+    }
+
+   function pulsarOperador(elemento){ //elegir el operador
+      operador=elemento.innerText;
+    }
+
+    function pulsarIgual(elemento){//valorar el operador
+      if(operador=="+"){
+        pantalla.innerText=  parseInt(parametro1)+ parseInt(parametro2);
+      }else if(operador=="-"){
+        pantalla.innerText=  parseInt(parametro1)- parseInt(parametro2);
+      }else if(operador=="x"){
+        pantalla.innerText=  parseInt(parametro1)* parseInt(parametro2);
+      }else{
+        pantalla.innerText=  parseInt(parametro1)/ parseInt(parametro2);
+      }
+    }
+
+    function pulsarCalcelar(elemento){ //resetear
+      pantalla.innerText = "0";
+          parametro1 = "";
+          parametro2 = "";
+          operador = "";
+          resultado = "";
+    }
+
+
+
+
+    /***********   OPERANDOS ******************/
+
+    let suma = document.getElementById("+");
+    let resta = document.getElementById("-");
+    let multiplicacion = document.getElementById("x");
+    let division = document.getElementById("/");
+
+
+    let cancel = document.getElementById("c");
+
+
+    /*************** Numeros***************/
+
+    let cero = document.getElementById("0");
+    let uno = document.getElementById("1");
+    let dos = document.getElementById("2");
+    let tres = document.getElementById("3");
+    let cuatro = document.getElementById("4");
+    let cinco = document.getElementById("5");
+    let seis = document.getElementById("6");
+    let siete = document.getElementById("7");
+    let ocho = document.getElementById("8");
+    let nueve = document.getElementById("9");
+
+    cero.addEventListener
+
+    /*************** boleanos************/
+    let vacia = true;
+
+    /******* añadir evento onclick a todos los elementos clase c*/
+
+
+    console.log("hola");
+
+
+
+
+
+
+  </script>
+
+</body>
+
+
+</html>
